@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 1000" width="200" height="1000">
+  <!-- Lamppost, base at the bottom centre. -->
+  <polygon points="92.0,60.0 108.0,60.0 108.0,1000.0 92.0,1000.0" fill="#3b4048"/>
+  <polygon points="100.0,60.0 108.0,60.0 108.0,1000.0 100.0,1000.0" fill="#4c525b"/>
+  <polygon points="70.0,30.0 130.0,30.0 122.0,64.0 78.0,64.0" fill="#2f3339"/>
+  <polygon points="80.0,60.0 120.0,60.0 114.0,80.0 86.0,80.0" fill="#fff1b8"/>
+  <polygon points="84.0,975.0 116.0,975.0 124.0,1000.0 76.0,1000.0" fill="#2f3339"/>
+</svg>

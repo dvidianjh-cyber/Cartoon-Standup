@@ -1,0 +1,63 @@
+{
+  "vanish": [
+    640,
+    300
+  ],
+  "sprites": [
+    {
+      "src": "lamp.svg",
+      "side": "both",
+      "offset": 450,
+      "y": 420,
+      "height": 1000,
+      "count": 3,
+      "near": 0.5,
+      "far": 12
+    },
+    {
+      "src": "tree.svg",
+      "side": "both",
+      "offset": 600,
+      "y": 420,
+      "height": 900,
+      "count": 3,
+      "phase": 0.5,
+      "near": 0.5,
+      "far": 12
+    },
+    {
+      "src": "bin.svg",
+      "side": "left",
+      "offset": 720,
+      "y": 420,
+      "height": 200,
+      "count": 2,
+      "phase": 0.25,
+      "near": 0.5,
+      "far": 12
+    },
+    {
+      "src": "car.svg",
+      "side": "right",
+      "offset": 300,
+      "y": 434,
+      "width": 420,
+      "count": 2,
+      "phase": 0.7,
+      "near": 0.6,
+      "far": 12
+    },
+    {
+      "src": "dash.svg",
+      "side": "centre",
+      "y": 434,
+      "width": 18,
+      "height": 220,
+      "anchor": "top",
+      "flat": true,
+      "count": 16,
+      "near": 0.9,
+      "far": 25
+    }
+  ]
+}
