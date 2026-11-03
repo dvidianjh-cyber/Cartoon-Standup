@@ -1,6 +1,6 @@
 # Digital Estates
 
-*Stand-Up. A vlog: JAMES films himself on his phone, hand-held on the street,
+*Rendered Rants. A vlog: JAMES films himself on his phone, hand-held on the street,
 propped up at home and on the dash in the estate car. All lines are James's (his
 own routine, verbatim apart from spellings for the voice: numbers and "2FA" as
 words, "Mr." as "Mister").*

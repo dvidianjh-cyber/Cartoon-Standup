@@ -1,4 +1,4 @@
-# Stand-Up — Bible
+# Rendered Rants — Bible
 
 James's video diary. Each episode is one short monologue (under five minutes)
 that James films himself: hand-held selfie close-ups walking down the street,
@@ -18,10 +18,10 @@ are James's own, kept as close to verbatim as the TTS allows.
 - **James**: the vlogger. Dry, warm, quietly exasperated by modern life; tells stories about his mate Tom. Dark navy zip jacket, blue dotted shirt, jeans, spiky brown hair. Body: adult. Voice: Algieba.
 
 ## Locations (backdrops)
-- **street**: terraced street, walking towards camera (depth backdrop: `motion: { type: recede, speed: 0.6 }`, lampposts, trees, bins, parked cars as sprites).
+- **street**: terraced street, walking towards camera (depth backdrop: `motion: { type: recede, speed: 0.6, period: 2.0 }`). The houses are drawn self-similar, so the base zoom-loops seamlessly (`zoom` in backdrop.json) while lampposts, trees, bins and parked cars go by as sprites.
 - **high_street**: shop fronts side-on for `scroll` (about 110): Fone Doctor (phone unlocking), The Daily Grind café, Pemberton & Gall solicitors, Spin Cycle records.
 - **lounge**: James's sofa in front of the vinyl shelves and turntable, window on the right.
-- **car**: the estate car from the dash mount, crates of records in the boot.
+- **car**: the estate car from the dash mount, in one-point perspective down the cabin; crates of records in the boot against the tailgate, rear headrests folded.
 
 ## Set pieces
 

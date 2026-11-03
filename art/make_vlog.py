@@ -49,54 +49,61 @@ def P(X, Y, z):
     return VX + X / z, VY + Y / z
 
 
+# House fronts are spaced by a constant depth ratio and the colours repeat
+# every HOUSE_REPEAT houses, so the base image maps onto itself when scaled by
+# STREET_ZOOM about the vanishing point. backdrop.json sets that zoom, so the
+# engine zoom-loops the base (the houses go by) under the moving sprites,
+# and the loop's cross-fade has nothing to ghost.
+HOUSE_RATIO = 1.32
+HOUSE_REPEAT = 3
+STREET_ZOOM = HOUSE_RATIO ** HOUSE_REPEAT
+
+
 def street():
     rnd = seeded(21)
-    b = []
-    b += sky(rnd, 320)
-    b += cloud(250, 90, 1.2) + cloud(1010, 60, 0.9) + cloud(760, 150, 0.6)
-    # far end of the street: a hazy terrace across the vanishing point
-    b.append(poly([(540, 250), (600, 236), (680, 236), (740, 250), (740, 312), (540, 312)], "#b98d7a"))
-    b.append(poly([(540, 250), (600, 236), (640, 236), (640, 312), (540, 312)], "#c79b86"))
-    zs = [0.5, 0.75, 1.05, 1.45, 2.0, 2.7, 3.6, 4.8, 6.5, 9, 13, 20]
+    b = ['<defs><linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="0" y1="-150" x2="0" y2="300">'
+         '<stop offset="0" stop-color="#86b4d3"/><stop offset="1" stop-color="#f2e3c4"/></linearGradient></defs>',
+         rect(-2000, -2000, 5280, 2300, "url(#sky)")]
+    zs = [0.25 * HOUSE_RATIO ** k for k in range(24)]          # 0.25 .. ~150
     EAVES = -380                 # two storeys
     for side in (-1, 1):
         X = 760 * side
         for i in range(len(zs) - 1):
             za, zb = zs[i], zs[i + 1]
             zm = lambda f: za + (zb - za) * f
-            base = ["#a65a43", "#93503c", "#b0654b"][i % 3] if side < 0 else ["#c9b394", "#b89f80", "#d4bf9f"][i % 3]
-            fog = min(0.5, i * 0.05)
-            c = mix(base, "#d9c4b0", fog)
+            k = i % HOUSE_REPEAT
+            c = ["#a65a43", "#93503c", "#b0654b"][k] if side < 0 else ["#c9b394", "#b89f80", "#d4bf9f"][k]
+            roof = "#4c5560"
             # pitched slate roof, then the facade
-            b.append(poly([P(X, EAVES, za), P(X, EAVES, zb), P(X * 1.3, EAVES - 170, zb), P(X * 1.3, EAVES - 170, za)], mix("#4c5560", "#9aa0a8", fog)))
-            b.append(poly([P(X, EAVES, za), P(X * 1.3, EAVES - 170, zm(0.5)), P(X * 1.3, EAVES - 170, za)], mix("#5a6470", "#9aa0a8", fog)))
-            if i % 2 == 0:   # chimney stack on the party wall
+            b.append(poly([P(X, EAVES, za), P(X, EAVES, zb), P(X * 1.3, EAVES - 170, zb), P(X * 1.3, EAVES - 170, za)], roof))
+            b.append(poly([P(X, EAVES, za), P(X * 1.3, EAVES - 170, zm(0.5)), P(X * 1.3, EAVES - 170, za)], "#5a6470"))
+            if k == 0:   # chimney stack on the party wall
                 b.append(poly([P(X * 1.12, EAVES - 60, za), P(X * 1.12, EAVES - 60, zm(0.12)), P(X * 1.12, EAVES - 230, zm(0.12)), P(X * 1.12, EAVES - 230, za)], shade(c, -0.15)))
             b.append(poly([P(X, EAVES, za), P(X, EAVES, zb), P(X, GROUND - 130, zb), P(X, GROUND - 130, za)], c))
             b.append(poly([P(X, EAVES, za), P(X, EAVES, zb), P(X, -150, za)], shade(c, 0.07)))
             b.append(poly([P(X, -60, za), P(X, -60, zb), P(X, GROUND - 130, zb), P(X, GROUND - 130, za)], shade(c, -0.06)))
-            frame, glass = mix("#efe8da", "#d9c4b0", fog), mix("#34495a", "#9fb2bf", fog)
-            # upstairs sash window, downstairs bay and the front door
+            frame, glass = "#efe8da", "#34495a"
             for (f0, f1, y0, y1) in ((0.15, 0.5, -320, -170), (0.1, 0.55, -40, 140)):
                 b.append(poly([P(X, y0, zm(f0)), P(X, y0, zm(f1)), P(X, y1, zm(f1)), P(X, y1, zm(f0))], frame))
                 b.append(poly([P(X, y0 + 14, zm(f0 + 0.04)), P(X, y0 + 14, zm(f1 - 0.04)), P(X, y1 - 14, zm(f1 - 0.04)), P(X, y1 - 14, zm(f0 + 0.04))], glass))
-            door = ["#1f4d3a", "#7b2d26", "#1f5fa8", "#2b2b30", "#d8b45a"][i % 5]
-            b.append(poly([P(X, -20, zm(0.68)), P(X, -20, zm(0.86)), P(X, GROUND - 130, zm(0.86)), P(X, GROUND - 130, zm(0.68))], mix(door, "#d9c4b0", fog)))
+            door = ["#1f4d3a", "#7b2d26", "#1f5fa8"][k]
+            b.append(poly([P(X, -20, zm(0.68)), P(X, -20, zm(0.86)), P(X, GROUND - 130, zm(0.86)), P(X, GROUND - 130, zm(0.68))], door))
             b.append(poly([P(X, -360, zm(0.98)), P(X, -360, zb), P(X, GROUND - 130, zb), P(X, GROUND - 130, zm(0.98))], shade(c, -0.25)))
             # low front wall and hedge along the pavement
-            b.append(poly([P(X, GROUND - 130, za), P(X, GROUND - 130, zb), P(X, GROUND, zb), P(X, GROUND, za)], mix("#3f6b3a", "#9fb08f", fog)))
-            b.append(poly([P(X, GROUND - 130, za), P(X, GROUND - 60, zb), P(X, GROUND, za)], mix("#355c31", "#9fb08f", fog)))
+            b.append(poly([P(X, GROUND - 130, za), P(X, GROUND - 130, zb), P(X, GROUND, zb), P(X, GROUND, za)], "#3f6b3a"))
+            b.append(poly([P(X, GROUND - 130, za), P(X, GROUND - 60, zb), P(X, GROUND, za)], "#355c31"))
         for Y, col, w in ((EAVES, "#3a3a40", 4), (-60, "#e9dccb", 3)):
-            a2, c2 = P(X, Y, 0.5), P(X, Y, 20)
+            a2, c2 = P(X, Y, zs[0]), P(X, Y, zs[-1])
             b.append(f'<path d="M{a2[0]:.1f} {a2[1]:.1f} L{c2[0]:.1f} {c2[1]:.1f}" stroke="{col}" stroke-width="{w}" opacity="0.7"/>')
     # pavements and road
+    # pavements and road: only lines along the street, so they look the same while it zooms
+    zn, zf = 0.25, 150
     for side in (-1, 1):
-        b.append(poly([P(760 * side, GROUND, 0.5), P(760 * side, GROUND, 20), P(420 * side, GROUND, 20), P(420 * side, GROUND, 0.55)], "#a9a49c"))
-        b.append(poly([P(760 * side, GROUND, 0.55), P(600 * side, GROUND, 20), P(420 * side, GROUND, 0.55)], "#b8b3aa"))
-        b.append(poly([P(420 * side, GROUND, 0.55), P(420 * side, GROUND, 20), P(400 * side, GROUND + 14, 20), P(400 * side, GROUND + 14, 0.55)], "#d9d4ca"))
-    b.append(poly([P(-400, GROUND + 14, 0.55), P(-400, GROUND + 14, 20), P(400, GROUND + 14, 20), P(400, GROUND + 14, 0.55)], "#55565e"))
-    b.append(poly([P(-400, GROUND + 14, 0.55), P(0, GROUND + 14, 20), P(-120, GROUND + 14, 0.55)], "#5e6068"))
-    base = svg(W, H, b, "Terraced street, vanishing at (640, 300). Lampposts, trees, cars and bins are sprites (backdrop.json). Made by art/make_vlog.py.")
+        b.append(poly([P(760 * side, GROUND, zn), P(760 * side, GROUND, zf), P(420 * side, GROUND, zf), P(420 * side, GROUND, zn)], "#aca79f"))
+        b.append(poly([P(420 * side, GROUND, zn), P(420 * side, GROUND, zf), P(400 * side, GROUND + 14, zf), P(400 * side, GROUND + 14, zn)], "#d9d4ca"))
+    b.append(poly([P(-400, GROUND + 14, zn), P(-400, GROUND + 14, zf), P(400, GROUND + 14, zf), P(400, GROUND + 14, zn)], "#55565e"))
+    b.append(poly([P(-400, GROUND + 14, zn), P(-400, GROUND + 14, zf), P(-130, GROUND + 14, zn)], "#5d5f67"))
+    base = svg(W, H, b, "Terraced street, vanishing at (640, 300). The base zoom-loops (backdrop.json zoom); lampposts, trees, cars and bins are sprites. Made by art/make_vlog.py.")
 
     lamp = svg(200, 1000, [
         rect(92, 60, 16, 940, "#3b4048"), rect(100, 60, 8, 940, "#4c525b"),
@@ -129,6 +136,7 @@ def street():
     dash = svg(24, 160, [rect(0, 0, 24, 160, "#e8e2c8")], "Road centre dash, flat.")
     sprites = {
         "vanish": [VX, VY],
+        "zoom": round(STREET_ZOOM, 4),
         "sprites": [
             {"src": "lamp.svg", "side": "both", "offset": 450, "y": GROUND, "height": 1000, "count": 3, "near": 0.5, "far": 12},
             {"src": "tree.svg", "side": "both", "offset": 600, "y": GROUND, "height": 900, "count": 3, "phase": 0.5, "near": 0.5, "far": 12},
@@ -222,62 +230,123 @@ def lounge():
 
 
 # ------------------------------------------------------------------ car
+# One-point perspective from the dash mount looking back down the cabin.
+# Cabin coordinates: X across (-1 .. 1 = the side walls), Y down (-0.62 roof,
+# 0.05 the waistline), z away from the camera (3.2 = the tailgate).
+CVX, CVY, CF = 640, 250, 700
+
+
+def C(X, Y, z):
+    return CVX + CF * X / z, CVY + CF * Y / z
+
+
+def quad(X0, X1, Y0, Y1, z):
+    """A face across the cabin at depth z."""
+    return [C(X0, Y0, z), C(X1, Y0, z), C(X1, Y1, z), C(X0, Y1, z)]
+
+
+def wall(side, Y0, Y1, z0, z1):
+    """A patch of the side wall (X = +-1) between depths z0 and z1."""
+    return [C(side, Y0, z0), C(side, Y0, z1), C(side, Y1, z1), C(side, Y1, z0)]
+
+
+ROOF, WAIST, FLOOR, TAIL = -0.62, 0.05, 0.9, 2.7
+
+
+def outside(clip_id, pts, rnd, ground_y):
+    """Sky, a hedge and rooftops seen through a window, clipped to its glass."""
+    xs = [p[0] for p in pts]
+    ys = [p[1] for p in pts]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    body = [f'<clipPath id="{clip_id}">{poly(pts, "#000")}</clipPath>', f'<g clip-path="url(#{clip_id})">']
+    body += faceted(x0, y0, x1, y1, max(2, int((x1 - x0) / 120)), 2, rnd,
+                    lambda cx, cy: shade(mix("#8fbad6", "#eadfc4", (cy - y0) / max(1, y1 - y0)), rnd.uniform(-0.03, 0.04)))
+    hx = x0
+    while hx < x1:   # rooftops
+        w = rnd.uniform(40, 80)
+        b2 = ground_y - rnd.uniform(18, 40)
+        body.append(poly([(hx, ground_y + 40), (hx, b2), (hx + w / 2, b2 - 18), (hx + w, b2), (hx + w, ground_y + 40)], rnd.choice(["#9b5a44", "#b0654b", "#c9b394"])))
+        hx += w
+    body.append(rect(x0, ground_y, x1 - x0, y1 - ground_y + 40, "#4f7a3f"))
+    body.append(poly([(x0, ground_y), (x1, ground_y + 6), (x1, ground_y + 14), (x0, ground_y + 10)], "#5f8a4a"))
+    body.append("</g>")
+    return body
+
+
 def car():
     rnd = seeded(9)
-    b = [rect(0, 0, W, H, "#2b2d33")]
-    # rear window behind the seats: street outside
-    rx0, ry0, rx1, ry1 = 300, 110, 1000, 330
-    def out(cx, cy):
-        return shade(mix("#8fbad6", "#e8dcc0", (cy - ry0) / (ry1 - ry0)), rnd.uniform(-0.03, 0.04))
-    b += faceted(rx0, ry0, rx1, ry1, 7, 3, rnd, out)
-    b.append(poly([(rx0, 270), (420, 240), (520, 262), (640, 236), (760, 258), (880, 240), (rx1, 262), (rx1, ry1), (rx0, ry1)], "#8a6150"))
-    b.append(poly([(rx0, 300), (rx1, 296), (rx1, ry1), (rx0, ry1)], "#5f7d4f"))
-    for i in range(8):
-        b.append(f'<path d="M{rx0 + 20} {ry0 + 30 + i * 22} H{rx1 - 20}" stroke="#c74a3a" stroke-width="1.5" opacity="0.35"/>')
-    # roof lining
-    def roof(cx, cy):
-        return shade(mix("#b9b6ae", "#8e8b84", cy / 120), rnd.uniform(-0.04, 0.04))
-    b += faceted(0, 0, W, 112, 12, 2, rnd, roof)
-    b.append(poly([(590, 20), (690, 20), (680, 44), (600, 44)], "#d9d6cf"))
-    b.append(poly([(606, 26), (674, 26), (668, 40), (612, 40)], "#fff5d6"))
-    b.append(poly([(rx0 - 20, 100), (rx1 + 20, 100), (rx1, ry0), (rx0, ry0)], "#5c5a57"))
-    # boot full of record crates, seen through the rear window either side of the headrest
-    for cx, cy in ((390, 262), (470, 276), (820, 270), (920, 258)):
-        b.append(poly([(cx - 48, cy), (cx + 48, cy), (cx + 48, cy + 70), (cx - 48, cy + 70)], "#8b6a45"))
-        b.append(poly([(cx - 48, cy), (cx, cy), (cx - 48, cy + 70)], "#7a5b3a"))
-        b += spines(cx - 44, cy - 30, cx + 44, cy + 2, rnd, RECORD_COLORS, lean=False)
-        b.append(rect(cx - 18, cy + 18, 36, 10, "#5b4329"))
-    b.append(rect(rx0, 326, rx1 - rx0, 10, "#3f4148"))
-    # rear seat back
-    b.append(poly([(0, 470), (1280, 470), (1280, 720), (0, 720)], "#3a3c44"))
-    b += faceted(0, 470, W, H, 12, 2, rnd, lambda cx, cy: shade("#3a3c44", rnd.uniform(-0.1, 0.08)))
-    # left: driver's door with its window (UK car, camera on the dash looking back)
-    def side(cx, cy):
-        return shade(mix("#9cc3d9", "#dfe8d0", cy / 420), rnd.uniform(-0.03, 0.04))
-    b.append(poly([(0, 60), (260, 112), (300, 430), (0, 460)], "#1e1f24"))
-    b += [p for p in faceted(0, 80, 270, 420, 3, 4, rnd, side)]
-    b.append(poly([(0, 300), (60, 280), (120, 300), (190, 270), (270, 300), (270, 420), (0, 420)], "#4f7a3f"))
-    b.append(poly([(0, 330), (270, 330), (270, 420), (0, 420)], "#3f6b3a"))
-    b.append(poly([(255, 90), (300, 100), (330, 470), (285, 470)], "#2a2b31"))
-    b.append(poly([(0, 420), (300, 430), (310, 720), (0, 720)], "#474a53"))
-    b.append(poly([(0, 520), (290, 500), (296, 540), (0, 560)], "#363840"))
-    b.append(poly([(200, 470), (260, 466), (262, 486), (202, 490)], "#9aa0a8"))
-    # driver's seat behind James: headrest and the seat's wings
-    b.append(poly([(520, 150), (760, 150), (780, 300), (500, 300)], "#24262c"))
-    b.append(poly([(520, 150), (640, 150), (640, 300), (500, 300)], "#1d1f24"))
-    b.append(poly([(600, 300), (620, 300), (620, 330), (600, 330)], "#9aa0a8"))
-    b.append(poly([(660, 300), (680, 300), (680, 330), (660, 330)], "#9aa0a8"))
-    b.append(poly([(420, 330), (860, 330), (900, 720), (380, 720)], "#2a2c33"))
-    b.append(poly([(420, 330), (480, 330), (440, 720), (380, 720)], "#353841"))
-    b.append(poly([(800, 330), (860, 330), (900, 720), (840, 720)], "#353841"))
-    # right: the empty passenger seat
-    b.append(poly([(1000, 170), (1180, 170), (1196, 290), (986, 290)], "#24262c"))
-    b.append(poly([(1000, 170), (1090, 170), (1090, 290), (986, 290)], "#1d1f24"))
-    b.append(poly([(940, 320), (1260, 320), (1290, 720), (910, 720)], "#2a2c33"))
-    b.append(poly([(940, 320), (1100, 320), (1080, 720), (910, 720)], "#30323a"))
-    # seat belt hanging on the B-pillar
-    b.append(poly([(286, 130), (300, 130), (360, 720), (342, 720)], "#15161a"))
-    write("car", {"backdrop.svg": svg(W, H, b, "Estate car from the dash mount: driver's seat, crates of vinyl in the boot. Made by art/make_vlog.py.")})
+    trim, trim_d, trim_l = "#3b3e46", "#30333a", "#4a4e57"
+    b = [rect(0, 0, W, H, "#26282e")]
+    # tailgate at the back: the rear window, the trim round it
+    b.append(poly(quad(-1, 1, ROOF, FLOOR, TAIL), trim_d))
+    rear_glass = quad(-0.82, 0.82, -0.52, WAIST - 0.02, TAIL)
+    b += outside("rearwin", rear_glass, rnd, C(0, -0.12, TAIL)[1])
+    for i in range(5):   # demister lines
+        y = C(0, -0.44 + i * 0.09, TAIL)[1]
+        b.append(f'<path d="M{C(-0.74, 0, TAIL)[0]:.0f} {y:.0f} H{C(0.74, 0, TAIL)[0]:.0f}" stroke="#b5574a" stroke-width="1.2" opacity="0.45"/>')
+    # side walls: two windows a side (rear door glass, then the estate's quarter glass)
+    for side in (-1, 1):
+        b.append(poly(wall(side, ROOF, FLOOR, 0.4, TAIL), trim))
+        b.append(poly(wall(side, WAIST, FLOOR, 0.4, TAIL), trim_d))
+        for k, (z0, z1) in enumerate(((0.95, 1.65), (1.8, 2.55))):
+            g = wall(side, ROOF + 0.07, WAIST, z0, z1)
+            b += outside(f"side{side}{k}", g, rnd, C(side, -0.15, (z0 + z1) / 2)[1])
+            b.append(f'<polygon points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in g)}" fill="none" stroke="#1b1c20" stroke-width="5"/>')
+        # pillars between the windows
+        for z0, z1 in ((0.4, 0.95), (1.65, 1.8), (2.55, TAIL)):
+            b.append(poly(wall(side, ROOF, WAIST, z0, z1), trim_l))
+        b.append(poly(wall(side, WAIST, WAIST + 0.06, 0.4, TAIL), "#1f2126"))   # window sill
+        b.append(poly(wall(side, 0.18, 0.24, 1.15, 1.35), "#8e949c"))   # door handle
+    # roof lining with a courtesy light
+    b.append(poly([C(-1, ROOF, 0.4), C(1, ROOF, 0.4), C(1, ROOF, TAIL), C(-1, ROOF, TAIL)], "#a9a69f"))
+    rz = [0.4, 0.8, 1.3, 1.9, TAIL]
+    for i in range(len(rz) - 1):
+        for j, (xa, xb) in enumerate(((-1, -0.3), (-0.3, 0.3), (0.3, 1))):
+            c = shade("#a9a69f", rnd.uniform(-0.08, 0.06) + (0.04 if j == 1 else -0.03))
+            b.append(poly([C(xa, ROOF, rz[i]), C(xb, ROOF, rz[i]), C(xb, ROOF, rz[i + 1])], c))
+            b.append(poly([C(xa, ROOF, rz[i]), C(xb, ROOF, rz[i + 1]), C(xa, ROOF, rz[i + 1])], shade(c, -0.04)))
+    b.append(poly([C(-0.12, ROOF, 1.3), C(0.12, ROOF, 1.3), C(0.12, ROOF, 1.55), C(-0.12, ROOF, 1.55)], "#e8e4da"))
+    b.append(poly([C(-0.08, ROOF, 1.34), C(0.08, ROOF, 1.34), C(0.08, ROOF, 1.51), C(-0.08, ROOF, 1.51)], "#fff5d6"))
+    # the boot, inside the car: crates of records stacked against the tailgate,
+    # drawn over the bottom of the rear glass
+    for X0, z in ((-0.8, 2.55), (-0.36, 2.6), (0.04, 2.6), (0.44, 2.55), (-0.62, 2.35), (0.3, 2.38)):
+        top = -0.26 if z > 2.45 else -0.17
+        f = quad(X0, X0 + 0.38, top, 0.3, z)
+        b.append(poly(f, "#8b6a45"))
+        b.append(poly([f[0], f[1], f[3]], "#7d5e3c"))
+        b.append(poly(quad(X0, X0 + 0.38, top, top + 0.025, z), "#a3825a"))
+        (x0, y0), (x1, _) = f[0], f[1]
+        b += spines(x0 + 3, y0 - 22, x1 - 3, y0 + 1, rnd, RECORD_COLORS, lean=False)
+        hx, hy = C(X0 + 0.19, top + 0.12, z)
+        b.append(rect(hx - 12, hy - 4, 24, 8, "#5b4329"))
+    # rear seats: backs and headrests, across the cabin
+    RZ = 2.05
+    b.append(poly(quad(-1, 1, 0.0, FLOOR, RZ), "#34363e"))
+    for X0, X1 in ((-1, -0.34), (-0.34, 0.34), (0.34, 1)):
+        c = shade("#3a3c44", rnd.uniform(-0.04, 0.04))
+        b.append(poly(quad(X0 + 0.03, X1 - 0.03, 0.02, 0.6, RZ), c))
+        b.append(poly(quad(X0 + 0.03, X1 - 0.03, 0.02, 0.07, RZ), shade(c, 0.15)))
+        b.append(poly([C(X0 + 0.03, 0.07, RZ), C(X0 + 0.15, 0.07, RZ), C(X0 + 0.15, 0.6, RZ), C(X0 + 0.03, 0.6, RZ)], shade(c, 0.07)))
+    # the empty passenger seat (screen right) and James's seat behind him
+    for Xc, z, c in ((0.72, 1.55, "#2a2c33"), (0.0, 1.4, "#26282e")):
+        # backrest: tapered, with side bolsters and a lit facet
+        tl, tr = C(Xc - 0.3, 0.08, z), C(Xc + 0.3, 0.08, z)
+        bl, br = C(Xc - 0.4, 1.25, z), C(Xc + 0.4, 1.25, z)
+        b.append(poly([tl, tr, br, bl], c))
+        ml, mr = C(Xc - 0.18, 0.12, z), C(Xc + 0.18, 0.12, z)
+        b.append(poly([tl, ml, C(Xc - 0.24, 1.25, z), bl], shade(c, 0.12)))
+        b.append(poly([mr, tr, br, C(Xc + 0.24, 1.25, z)], shade(c, 0.06)))
+        b.append(poly([ml, C(Xc, 0.1, z), C(Xc, 1.25, z), C(Xc - 0.24, 1.25, z)], shade(c, 0.03)))
+        b.append(poly([tl, tr, C(Xc + 0.27, 0.16, z), C(Xc - 0.27, 0.16, z)], shade(c, 0.18)))
+        # headrest: a faceted cushion on two posts
+        for dx in (-0.1, 0.07):
+            b.append(poly(quad(Xc + dx, Xc + dx + 0.03, 0.0, 0.1, z), "#8e949c"))
+        hr = [C(Xc - 0.15, -0.24, z), C(Xc + 0.15, -0.24, z), C(Xc + 0.19, -0.15, z), C(Xc + 0.17, 0.02, z),
+              C(Xc - 0.17, 0.02, z), C(Xc - 0.19, -0.15, z)]
+        b.append(poly(hr, shade(c, -0.02)))
+        b.append(poly([hr[0], hr[1], hr[2], hr[5]], shade(c, 0.14)))
+        b.append(poly([hr[5], C(Xc, -0.15, z), hr[4]], shade(c, 0.05)))
+    write("car", {"backdrop.svg": svg(W, H, b, "Estate car from the dash mount, one-point perspective; crates of vinyl in the boot. Made by art/make_vlog.py.")})
 
 
 # ------------------------------------------------------------------ high street (scroll)

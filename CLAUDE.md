@@ -1,4 +1,4 @@
-# Stand-Up
+# Rendered Rants
 
 This repo is one cartoon series made with CartoonEngine. It holds everything
 that belongs to the show; the engine that draws, voices and renders it lives
