@@ -1,0 +1,498 @@
+# Digital Estates: James's stand-up routine about inheriting a digital life.
+# One comic at the mic on the club stage, cut between three framings of the same
+# stage (wide, medium, close; art/make_stage.py draws all three from one picture).
+#   py ../cartoonengine/tools/run_episode.py show/episodes/digital_estates
+#
+# Framings (puppet x, feet y, scale; the mic stand sits 20 units below the feet):
+#   wide  : stage_wide,  james 640 / 640 / 0.55, mic y 651, front-row heads
+#   mid   : stage_mid,   james 640 / 1160 / 1.1, mic y 1182   (zoom 2)
+#   close : stage_close, james 640 / 1665 / 1.65, mic y 1698  (zoom 3)
+episode: digital_estates
+title: "Digital Estates"
+display_title: "Digital Estates"
+fps: 30
+width: 1280
+height: 720
+audio_pad: 0.05
+pause_after: 0.2
+lead_in: 0.15
+tail: 0.1
+
+x-shots:
+  wide_set: &wide_set
+    - { piece: mic, id: mic, x: 640, y: 651, scale: 0.55 }
+    - { piece: audience, id: crowd, x: 640, y: 720, scale: 1.0 }
+  mid_set: &mid_set
+    - { piece: mic, id: mic, x: 640, y: 1182, scale: 1.1 }
+  close_set: &close_set
+    - { piece: mic, id: mic, x: 640, y: 1698, scale: 1.65 }
+  wide_cast: &wide_cast
+    james: { x: 640, y: 640, scale: 0.55, look: center, actions: [idle, blink] }
+  mid_cast: &mid_cast
+    james: { x: 640, y: 1160, scale: 1.1, look: center, actions: [idle, blink] }
+  close_cast: &close_cast
+    james: { x: 640, y: 1665, scale: 1.65, look: center, actions: [idle, blink] }
+
+scenes:
+  # ---------------------------------------------------------------- granddad
+  - name: granddad
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lead_in: 0.6
+    lines:
+      - character: james
+        text: "When my granddad died, splitting up his estate was basically a CrossFit workout."
+        direction: "opening the set, relaxed and warm, the last word a little punchy"
+        pause_after: 0.4
+      - character: james
+        text: "Four hundred vinyl records."
+        direction: "flat, letting the number land"
+        beats:
+          - { character: james, action: look, dir: left, start: 0.2, dur: 1.4 }
+      - character: james
+        text: "Heavy as lead."
+        direction: "deadpan"
+        action: still
+        beats:
+          - { character: james, action: nod, start: 0.1 }
+      - character: james
+        text: "Taking three trips in the estate car just to get them to my house."
+        direction: "weary, remembering the effort"
+        pause_after: 0.35
+
+  - name: knew_where_you_stood
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "But you knew exactly where you stood!"
+        direction: "brightening, almost nostalgic"
+        action: { action: point, dir: up }
+      - character: james
+        text: "He bought them, he owned them, boom, they were ours."
+        direction: "quick rhythm of three, hitting boom hard"
+        pause_after: 0.5
+        beats:
+          - { character: james, action: nod, start: 1.6 }
+
+  # ---------------------------------------------------------------- Tom
+  - name: tom
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lines:
+      - character: james
+        text: "Contrast that with my mate Tom."
+        direction: "shifting gear, conspiratorial"
+        beats:
+          - { character: james, action: look, dir: right, start: 0.1, dur: 1.4 }
+      - character: james
+        text: "Tom's dad died a few months ago."
+        direction: "a touch softer"
+        action: still
+      - character: james
+        text: "And look, Tom's dad was a legend, we miss him, this is not about grief."
+        direction: "sincere, hand up, reassuring the room"
+      - character: james
+        text: "This is about the absolute, farcical, administrative nightmare of modern life."
+        direction: "building, relishing each adjective"
+      - character: james
+        text: "One of those days where the universe just points at you and laughs."
+        direction: "rueful"
+        pause_after: 0.4
+        beats:
+          - { character: james, action: point, dir: left, start: 1.9, dur: 1.4 }
+
+  - name: steam
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "See, Tom's dad was a proper first-generation digital native."
+        direction: "proud on the dad's behalf"
+      - character: james
+        text: "Had a massive Steam library."
+        direction: "impressed"
+      - character: james
+        text: "Thousands of pounds worth of games."
+        direction: "eyebrows up, slightly scandalised"
+        action: still
+        beats:
+          - { character: james, action: surprised, start: 0.2 }
+      - character: james
+        text: "Tom's the executor, wants to do the right thing, decides to pass the games down to his teenage nephew."
+        direction: "brisk storytelling, good-natured"
+      - character: james
+        text: "So Tom emails the platform."
+        direction: "matter of fact"
+      - character: james
+        text: "Here's the death certificate, lads. Let's transfer the account."
+        direction: "playing Tom, cheerful and naive"
+        pause_after: 0.4
+        beats:
+          - { character: james, action: shrug, start: 1.6 }
+
+  - name: bam
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    lines:
+      - character: james
+        text: "What do they do?"
+        direction: "leaning in, quiet"
+        action: still
+      - character: james
+        text: "Bam."
+        direction: "sharp, sudden"
+        action: still
+        pause_after: 0.25
+        beats:
+          - { character: james, action: surprised, start: 0.0 }
+      - character: james
+        text: "Gone."
+        direction: "flat"
+        action: still
+      - character: james
+        text: "Vaporized."
+        direction: "drawn out, appalled"
+        action: still
+        pause_after: 0.5
+        beats:
+          - { character: james, action: head_shake, start: 0.3 }
+
+  - name: licenses
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "\"Licenses expire upon death, sir.\""
+        direction: "impersonating a bored, robotic customer service agent"
+        action: still
+        beats:
+          - { character: james, action: hands_on_hips, start: 0.0 }
+      - character: james
+        text: "Account permanently closed."
+        direction: "same robotic voice, final"
+        action: still
+        pause_after: 0.35
+        beats:
+          - { character: james, action: hands_on_hips, start: 0.0 }
+      - character: james
+        text: "In trying to be a good guy and do the right thing, Tom legally incinerated his nephew's inheritance in about four seconds."
+        direction: "back to himself, incredulous, speeding up to the punchline"
+        pause_after: 0.3
+      - character: james
+        text: "Well done, Tom."
+        direction: "dry, sarcastic"
+        action: still
+        pause_after: 0.6
+        beats:
+          - { character: james, action: facepalm, start: 0.2 }
+
+  # ---------------------------------------------------------------- crypto
+  - name: crypto
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lines:
+      - character: james
+        text: "Slightly bruised, he moves on to the financial stuff."
+        direction: "picking the story back up"
+      - character: james
+        text: "Dad was into crypto."
+        direction: "a knowing look at the audience"
+        action: still
+        beats:
+          - { character: james, action: look, dir: right, start: 0.1, dur: 1.2 }
+      - character: james
+        text: "Left behind a hardware wallet with a decent chunk of change on it."
+        direction: "impressed"
+      - character: james
+        text: "But Tom needs the twenty-four word seed phrase."
+        direction: "a warning note creeping in"
+      - character: james
+        text: "Dad kept a backup in a secure email."
+        direction: "relieved"
+      - character: james
+        text: "Smart!"
+        direction: "bright, approving"
+        action: { action: point, dir: up }
+      - character: james
+        text: "So Tom sits at the PC, types in the password, hits enter."
+        direction: "miming the steps, tense and quick"
+
+  - name: code
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    lines:
+      - character: james
+        text: "Screen blinks."
+        direction: "hushed"
+        action: still
+      - character: james
+        text: "\"Please enter the six-digit code sent to your mobile device.\""
+        direction: "a calm, cheerful automated voice"
+        action: still
+        pause_after: 0.5
+        beats:
+          - { character: james, action: worried, start: 0.4 }
+
+  - name: sweat
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "You can physically see the cold sweat form on Tom's neck."
+        direction: "savouring it"
+        beats:
+          - { character: james, action: worried, start: 0.0 }
+      - character: james
+        text: "Because Tom is a highly efficient executor."
+        direction: "heavy sarcasm on highly efficient"
+      - character: james
+        text: "His very first act, yesterday morning, was calling the telecom provider to cancel his dad's phone contract."
+        direction: "building dread"
+      - character: james
+        text: "SIM card? Dead."
+        direction: "a list of disasters, clipped"
+        action: still
+        beats:
+          - { character: james, action: head_shake, start: 0.4 }
+      - character: james
+        text: "Number? Deactivated."
+        direction: "clipped"
+        action: still
+      - character: james
+        text: "That two-factor authentication chain? Smashed to pieces."
+        direction: "the payoff, loud"
+        pause_after: 0.4
+        beats:
+          - { character: james, action: shrug, start: 1.7 }
+
+  - name: cloud
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    lines:
+      - character: james
+        text: "He's not just locked out of the crypto."
+        direction: "low, serious"
+        action: still
+        beats:
+          - { character: james, action: worried, start: 0.0 }
+      - character: james
+        text: "He's locked out of the cloud."
+        direction: "landing it"
+        action: still
+        beats:
+          - { character: james, action: worried, start: 0.0 }
+      - character: james
+        text: "A decade of family photos, videos, memories, suddenly sealed behind an impenetrable cryptographic blast door."
+        direction: "mock-epic, like a movie trailer"
+        pause_after: 0.5
+        beats:
+          - { character: james, action: worried, start: 0.0, dur: 3.0 }
+
+  # ---------------------------------------------------------------- solicitor
+  - name: solicitor
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lines:
+      - character: james
+        text: "Panicking, Tom goes to the family solicitor."
+        direction: "brisk"
+      - character: james
+        text: "You know the type."
+        direction: "knowing, to the room"
+        action: still
+        beats:
+          - { character: james, action: look, dir: left, start: 0.0, dur: 1.2 }
+      - character: james
+        text: "Lovely old boy."
+        direction: "fond"
+        action: still
+        beats:
+          - { character: james, action: nod, start: 0.2 }
+      - character: james
+        text: "Still dictates onto mini-cassettes."
+        direction: "amused"
+      - character: james
+        text: "Smells like mahogany and dust."
+        direction: "relishing it"
+        pause_after: 0.35
+
+  - name: stern_letter
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "Tom sits there raving about cryptographic lock-outs, severed two F A loops, evaporated software licenses..."
+        direction: "fast and frantic, playing Tom"
+      - character: james
+        text: "and the solicitor just nods, adjusts his glasses, and goes,"
+        direction: "slowing right down"
+        action: still
+        beats:
+          - { character: james, action: nod, start: 0.8 }
+      - character: james
+        text: "\"Right then. I shall write a stern letter to Mister Apple.\""
+        direction: "a plummy, doddery old English solicitor, utterly serene"
+        action: { action: point, dir: up }
+        pause_after: 0.7
+
+  - name: screwed
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    lines:
+      - character: james
+        text: "It's hilarious."
+        direction: "laughing a little"
+        action: still
+      - character: james
+        text: "But then you stop laughing, and you realize..."
+        direction: "the laugh fading, slowing"
+        action: still
+        pause_after: 0.3
+      - character: james
+        text: "we are so screwed."
+        direction: "quiet, blunt"
+        action: still
+        pause_after: 0.6
+        beats:
+          - { character: james, action: worried, start: 0.0, dur: 2.0 }
+
+  # ---------------------------------------------------------------- encryption
+  - name: mi5
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "For years, M I five and the police have been crying about this!"
+        direction: "ramping into a rant"
+      - character: james
+        text: "End-to-end encryption."
+        direction: "mock-ominous"
+      - character: james
+        text: "Unbreakable codes."
+        direction: "mock-ominous"
+      - character: james
+        text: "Tech companies refusing backdoors."
+        direction: "mock-ominous"
+        beats:
+          - { character: james, action: arms_crossed, start: 0.0 }
+      - character: james
+        text: "But now?"
+        direction: "a sharp turn"
+        action: still
+      - character: james
+        text: "That military-grade encryption has finally come home to roost."
+        direction: "grim satisfaction"
+      - character: james
+        text: "It's no longer just stopping terrorists."
+        direction: "building"
+      - character: james
+        text: "It's stopping grieving families from getting the photos from last year's Christmas dinner!"
+        direction: "exasperated peak"
+        pause_after: 0.5
+        beats:
+          - { character: james, action: shrug, start: 2.6 }
+
+  - name: tombs
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lines:
+      - character: james
+        text: "We spent twenty years letting tech companies terrify us into building these unassailable digital fortresses to keep out the hackers."
+        direction: "a bigger, more thoughtful point, steady"
+      - character: james
+        text: "But we forgot to build a front door for the people we leave behind."
+        direction: "softer, sincere"
+        pause_after: 0.35
+
+  - name: tombs_close
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    lines:
+      - character: james
+        text: "We didn't build digital homes."
+        direction: "slow, deliberate"
+        action: still
+        pause_after: 0.3
+      - character: james
+        text: "We built digital tombs."
+        direction: "quiet, the line hanging in the air"
+        action: still
+        pause_after: 0.8
+
+  - name: captcha
+    backdrop: stage_mid
+    set: *mid_set
+    cast: *mid_cast
+    lines:
+      - character: james
+        text: "So here we are, rushing to digitize our entire existence."
+        direction: "picking the energy back up"
+      - character: james
+        text: "Are we seriously prepared to be the first generation in human history that leaves absolutely nothing behind,"
+        direction: "building, incredulous"
+      - character: james
+        text: "just because our grieving kids couldn't pass a CAPTCHA proving they know what a crosswalk looks like?"
+        direction: "the absurd punchline, exasperated"
+        pause_after: 0.6
+        beats:
+          - { character: james, action: shrug, start: 3.4 }
+
+  # ---------------------------------------------------------------- button
+  - name: bus
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    lines:
+      - character: james
+        text: "Honestly, if I get hit by a bus tomorrow, forget the digital lawyers."
+        direction: "decisive, waving it away"
+      - character: james
+        text: "I'm having my twenty-four word crypto seed phrase laser-engraved, one letter at a time, across all four hundred of my granddad's vinyl records!"
+        direction: "triumphant, building to a big finish"
+        pause_after: 0.4
+        beats:
+          - { character: james, action: point, dir: up, start: 5.0, dur: 1.6 }
+
+  - name: hernia
+    backdrop: stage_close
+    set: *close_set
+    cast: *close_cast
+    tail: 0.3
+    lines:
+      - character: james
+        text: "If my family wants my digital legacy, they're going to have to earn it the old-fashioned way,"
+        direction: "smug, slowing for the callback"
+      - character: james
+        text: "three trips in the estate car and a double hernia."
+        direction: "the closing punchline, delighted with himself"
+        pause_after: 0.3
+      - wait: 1.6
+        beats:
+          - { character: james, action: nod, start: 0.2 }
+
+  - name: goodnight
+    backdrop: stage_wide
+    set: *wide_set
+    cast: *wide_cast
+    tail: 0.6
+    lines:
+      - wait: 2.2
+        beats:
+          - { character: james, action: wave, start: 0.1, dur: 2.0 }

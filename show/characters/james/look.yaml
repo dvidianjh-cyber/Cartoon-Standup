@@ -1,0 +1,11 @@
+# James: the comic. Dark navy zip jacket over a blue dotted shirt, jeans, spiky brown hair.
+body: adult
+skin: "#ebb796"
+hair: spiky
+hair_colors: { main: "#7e5b45", dark: "#5c3f2e" }
+brows: "#5c3f2e"
+outfit: jacket
+outfit_colors: { main: "#2e303d", dark: "#1c2431", accent: "#3fa7d6", check: "#1f6e9e" }
+legs: "#4f6f93"
+shoes: "#2c3446"
+iris: "#425566"

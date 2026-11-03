@@ -1,0 +1,153 @@
+{
+  "version": 2,
+  "style": "geometric",
+  "viewBox": [
+    318,
+    970
+  ],
+  "pivots": {
+    "body": [
+      159,
+      960
+    ],
+    "head": [
+      159,
+      285
+    ],
+    "arm_l": [
+      51,
+      312
+    ],
+    "forearm_l": [
+      45,
+      462
+    ],
+    "hand_l": [
+      42,
+      647
+    ],
+    "arm_r": [
+      267,
+      312
+    ],
+    "forearm_r": [
+      273,
+      462
+    ],
+    "hand_r": [
+      276,
+      647
+    ],
+    "brow_l": [
+      -29,
+      -21
+    ],
+    "brow_r": [
+      29,
+      -21
+    ]
+  },
+  "points": {
+    "mouth": [
+      159,
+      202
+    ],
+    "eye_l": [
+      131,
+      145
+    ],
+    "eye_r": [
+      187,
+      145
+    ],
+    "ear_l": [
+      83,
+      155
+    ],
+    "ear_r": [
+      235,
+      155
+    ],
+    "chest": [
+      159,
+      380
+    ],
+    "carry_l": [
+      104,
+      450
+    ],
+    "carry_r": [
+      214,
+      450
+    ],
+    "keys_l": [
+      119,
+      420
+    ],
+    "keys_r": [
+      199,
+      420
+    ],
+    "hip_l": [
+      67,
+      508
+    ],
+    "hip_r": [
+      251,
+      508
+    ],
+    "cross_l": [
+      204,
+      430
+    ],
+    "cross_r": [
+      114,
+      430
+    ],
+    "watch": [
+      184,
+      410
+    ]
+  },
+  "pupilRange": [
+    4,
+    2
+  ],
+  "headScale": 0.47,
+  "headBox": [
+    59,
+    0,
+    200,
+    260
+  ],
+  "body": {
+    "head": 1.0,
+    "neck": 0,
+    "torso_w": 1.0,
+    "torso_h": 1.0,
+    "arm": 1.0,
+    "forearm": 1.0,
+    "arm_w": 1.0,
+    "hands": 1.0,
+    "leg": 370,
+    "leg_w": 1.0,
+    "feet": 1.0
+  },
+  "parts": {
+    "eyes": "eyes",
+    "eyesClosed": "eyes_closed",
+    "brows": "brows",
+    "mouth": "mouth"
+  },
+  "mouthShapes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "X"
+  ]
+}
