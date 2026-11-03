@@ -1,0 +1,16 @@
+# Title and end cards, shared by every episode of the series (see tools/compile_timeline.py).
+# The show's name comes from series.yaml `title:`; each episode's script.yaml gives the title shown on
+# its card (`display_title:`, else `title:`). `titles: false` in a script leaves the cards out.
+background: "#2a1a24"            # card colour: the club after dark
+# backdrop: street               # optional: a series backdrop behind the cards instead of the colour
+# logo: logo.svg                 # optional: an image in this folder instead of the cut-out show name
+paper: ["#e8473c", "#3c8de8", "#f7f1e1", "#5fbf4a", "#9b59d0", "#f28c28"]   # letter scraps
+jingle: uke-glock-duet                 # tools/make_jingle.py {series} --pick <name> remakes the two sounds
+intro:
+  duration: 3.0
+  sound: intro.wav
+outro:
+  duration: 2.0
+  sound: outro.wav
+  text: "See you next time!"
+  fade: 0.6                      # seconds of fade to black at the very end

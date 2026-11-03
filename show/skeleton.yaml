@@ -1,0 +1,12 @@
+# The show's puppet style and bodies. tools/make_puppet.py reads this for every
+# character: look.yaml picks a body with `body:` (else `default`) and can fine-tune
+# it with `proportions:`. Keys are listed at the top of tools/make_puppet.py.
+#
+# The geometric style: flat, faceted low-poly shapes, realistic proportions,
+# a neck, legs and shoes (James's reference art).
+style: geometric
+default: adult
+bodies:
+  adult: {}
+  tall:  { like: adult, size: 1.08, head: 0.95, arm: 1.04 }
+  big:   { like: adult, torso_w: 1.3, torso_h: 1.06, arm_w: 1.3, leg_w: 1.35, leg: 340, head: 1.05 }

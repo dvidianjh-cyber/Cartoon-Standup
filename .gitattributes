@@ -1,0 +1,2 @@
+# Finished videos are stored with Git LFS (run `git lfs install` once per computer).
+renders/*.mp4 filter=lfs diff=lfs merge=lfs -text
