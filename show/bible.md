@@ -1,31 +1,29 @@
 # Stand-Up — Bible
 
-James does stand-up. Each episode is one short routine (under five minutes)
-performed at the mic on a comedy club stage, cut between a wide, a medium and
-a close shot. The words are James's own routine, kept as close to verbatim as
-the TTS allows.
+James's video diary. Each episode is one short monologue (under five minutes)
+that James films himself: hand-held selfie close-ups walking down the street,
+the phone propped up at home, or on the dash mount in his estate car. The words
+are James's own, kept as close to verbatim as the TTS allows.
 
 ## Look
 - Faceted low-poly flat art (the `geometric` puppet style in `show/skeleton.yaml`):
   angular shapes, flat shading in two or three tones per surface, realistic
   proportions. 1280x720, 30 fps.
-- The stage is drawn once by `art/make_stage.py` and cropped into three
-  framings, so every cut matches.
+- Locations are drawn by `art/make_vlog.py` (helpers in `art/lowpoly.py`).
+- Framings: close (`y: 1418, scale: 1.4`, head and shoulders) and extreme
+  close (`y: 1825, scale: 1.85`). Walking shots use `[walk, blink, selfie]`
+  (gestures with the left hand); propped-phone shots use `[idle, blink]`.
 
 ## Characters
-- **James**: the comic. Dry, warm, quietly exasperated by modern life; tells stories about his mate Tom. Dark navy zip jacket, blue dotted shirt, jeans, spiky brown hair. Body: adult. Voice: Algieba.
+- **James**: the vlogger. Dry, warm, quietly exasperated by modern life; tells stories about his mate Tom. Dark navy zip jacket, blue dotted shirt, jeans, spiky brown hair. Body: adult. Voice: Algieba.
 
 ## Locations (backdrops)
-- **stage_wide / stage_mid / stage_close**: a small comedy club stage. Exposed
-  brick wall lit by a spotlight, a pink and gold LIVE COMEDY neon sign, red
-  curtains, a bar stool with a pint of water. The three are the same picture
-  at zoom 1, 2 and 3. Where James stands in each is at the top of
-  `art/make_stage.py` and in every episode's `script.yaml`.
+- **street**: terraced street, walking towards camera (depth backdrop: `motion: { type: recede, speed: 0.6 }`, lampposts, trees, bins, parked cars as sprites).
+- **high_street**: shop fronts side-on for `scroll` (about 110): Fone Doctor (phone unlocking), The Daily Grind café, Pemberton & Gall solicitors, Spin Cycle records.
+- **lounge**: James's sofa in front of the vinyl shelves and turntable, window on the right.
+- **car**: the estate car from the dash mount, crates of records in the boot.
 
 ## Set pieces
-- **mic**: mic on a stand, drawn over James (`layer: front`). Same x and scale
-  as James, `y` 20 puppet units below his feet.
-- **audience**: front row of heads in silhouette; wide shot only, at (640, 720).
 
 ## Props
 

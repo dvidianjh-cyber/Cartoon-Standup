@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 900" width="400" height="900">
+  <!-- Street tree, trunk at the bottom centre. -->
+  <polygon points="188.0,900.0 212.0,900.0 206.0,420.0 194.0,420.0" fill="#5b3f2c"/>
+  <polygon points="200.0,900.0 212.0,900.0 206.0,420.0 200.0,420.0" fill="#6e4c35"/>
+  <polygon points="200.0,560.0 204.0,520.0 290.0,430.0 284.0,424.0" fill="#5b3f2c"/>
+  <polygon points="200.0,0.0 330.0,90.0 380.0,260.0 330.0,430.0 200.0,480.0 70.0,430.0 20.0,260.0 70.0,90.0" fill="#4f7a3f"/>
+  <polygon points="200.0,0.0 330.0,90.0 200.0,200.0" fill="#6a9a50"/>
+  <polygon points="330.0,90.0 380.0,260.0 200.0,200.0" fill="#5d8a47"/>
+  <polygon points="380.0,260.0 330.0,430.0 200.0,200.0" fill="#44693a"/>
+  <polygon points="330.0,430.0 200.0,480.0 200.0,200.0" fill="#3c5e33"/>
+  <polygon points="200.0,480.0 70.0,430.0 200.0,200.0" fill="#466e3b"/>
+  <polygon points="70.0,430.0 20.0,260.0 200.0,200.0" fill="#55833f"/>
+  <polygon points="20.0,260.0 70.0,90.0 200.0,200.0" fill="#6f9f52"/>
+  <polygon points="70.0,90.0 200.0,0.0 200.0,200.0" fill="#7aab5a"/>
+</svg>
