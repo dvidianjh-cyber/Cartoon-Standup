@@ -3,6 +3,7 @@
     640,
     300
   ],
+  "zoom": 2.3,
   "sprites": [
     {
       "src": "lamp.svg",

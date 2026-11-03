@@ -22,7 +22,7 @@ tail: 0.1
 scenes:
 - name: walk_granddad
   backdrop: street
-  motion: {type: recede, speed: 0.6}
+  motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
@@ -55,7 +55,7 @@ scenes:
     tilt: {angle: 5, start: 0.6, dur: 2.2}
 - name: walk_stood
   backdrop: street
-  motion: {type: recede, speed: 0.6}
+  motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
@@ -78,7 +78,7 @@ scenes:
     tilt: {angle: -6, start: 1.4, dur: 1.6}
 - name: walk_tom
   backdrop: street
-  motion: {type: recede, speed: 0.6}
+  motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
@@ -430,7 +430,7 @@ scenes:
     - {character: james, action: worried, start: 0.0, dur: 2.0}
 - name: walk_mi5
   backdrop: street
-  motion: {type: recede, speed: 0.6}
+  motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
@@ -533,7 +533,7 @@ scenes:
     - {character: james, action: shrug, start: 3.4}
 - name: walk_bus
   backdrop: street
-  motion: {type: recede, speed: 0.6}
+  motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:

@@ -1,4 +1,4 @@
-# Stand-Up
+# Rendered Rants
 
 A cartoon series made with [CartoonEngine](https://github.com/dvidianjh-cyber/cartoonengine).
 
