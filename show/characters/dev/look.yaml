@@ -1,0 +1,10 @@
+# Dev: a passer-by on the high street. Cropped black hair, beard, green tee. Non-speaking.
+skin: "#a8724f"
+hair: crop
+hair_colors: { main: "#1f1a18", dark: "#141110" }
+beard: true
+outfit: tee
+outfit_colors: { main: "#3f8f5a", dark: "#2f6e45", accent: "#e8e4d8", check: "#2f6e45" }
+legs: "#2f3d55"
+shoes: "#e8e4d8"
+iris: "#3a2a20"

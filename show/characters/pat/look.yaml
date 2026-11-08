@@ -1,0 +1,9 @@
+# Pat: a passer-by on the high street. Long red hair, mustard jumper. Non-speaking.
+skin: "#f1c6a5"
+hair: long
+hair_colors: { main: "#b5532f", dark: "#8a3c22" }
+outfit: sweater
+outfit_colors: { main: "#d9a43a", dark: "#b0852c", accent: "#f3e2b0", check: "#b0852c" }
+legs: "#3b3f4a"
+shoes: "#5a3a2a"
+iris: "#4d6b3c"

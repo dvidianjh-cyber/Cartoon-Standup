@@ -1,64 +1,76 @@
 {
   "vanish": [
-    640,
-    300
+    360,
+    470
   ],
   "zoom": 2.3,
+  "sync": true,
   "sprites": [
     {
       "src": "lamp.svg",
       "side": "both",
-      "offset": 450,
-      "y": 420,
-      "height": 1000,
+      "offset": 360.0,
+      "y": 336.0,
+      "height": 800.0,
       "count": 3,
-      "near": 0.5,
-      "far": 12
+      "near": 0.35,
+      "far": 4.26
     },
     {
       "src": "tree.svg",
       "side": "both",
-      "offset": 600,
-      "y": 420,
-      "height": 900,
+      "offset": 480.0,
+      "y": 336.0,
+      "height": 720.0,
       "count": 3,
       "phase": 0.5,
-      "near": 0.5,
-      "far": 12
+      "near": 0.35,
+      "far": 4.26
     },
     {
       "src": "bin.svg",
       "side": "left",
-      "offset": 720,
-      "y": 420,
-      "height": 200,
-      "count": 2,
-      "phase": 0.25,
-      "near": 0.5,
-      "far": 12
+      "offset": 576.0,
+      "y": 336.0,
+      "height": 160.0,
+      "count": 3,
+      "phase": 0.2,
+      "near": 0.35,
+      "far": 4.26
     },
     {
       "src": "car.svg",
       "side": "right",
-      "offset": 300,
-      "y": 434,
-      "width": 420,
+      "offset": 240.0,
+      "y": 347.2,
+      "width": 336.0,
       "count": 2,
       "phase": 0.7,
-      "near": 0.6,
-      "far": 12
+      "near": 0.45,
+      "far": 2.38
+    },
+    {
+      "src": "car2.svg",
+      "side": "left",
+      "offset": 240.0,
+      "y": 347.2,
+      "width": 336.0,
+      "count": 1,
+      "phase": 0.35,
+      "near": 0.45,
+      "far": 1.03
     },
     {
       "src": "dash.svg",
       "side": "centre",
-      "y": 434,
-      "width": 18,
-      "height": 220,
+      "y": 347.2,
+      "width": 14.4,
+      "height": 176.0,
       "anchor": "top",
       "flat": true,
-      "count": 16,
-      "near": 0.9,
-      "far": 25
+      "count": 12,
+      "near": 0.6,
+      "far": 7.3
     }
   ]
 }

@@ -1,7 +1,8 @@
 # Digital Estates
 
-*Rendered Rants. A vlog: JAMES films himself on his phone, hand-held on the street,
-propped up at home and on the dash in the estate car. All lines are James's (his
+*Rendered Rants. A vlog, filmed upright: JAMES films himself on his phone, hand-held
+on the street and across from the high street shops, propped up at home and on the
+dash in the estate car. All lines are James's (his
 own routine, verbatim apart from spellings for the voice: numbers and "2FA" as
 words, "Mr." as "Mister").*
 
@@ -82,7 +83,7 @@ JAMES (low, worried): He's not just locked out of the crypto.
 JAMES: He's locked out of the cloud.
 JAMES (mock-epic): A decade of family photos, videos, memories, suddenly sealed behind an impenetrable cryptographic blast door.
 
-**THE HIGH STREET.** Selfie walk past the shops: a phone unlocking shop, a café, the solicitors Pemberton & Gall, a record shop.
+**THE HIGH STREET.** James stands filming himself across the road from the shops: the solicitors Pemberton & Gall, a phone unlocking shop, a record shop. People pass on the far pavement; cars go by between him and the shops.
 
 JAMES: Panicking, Tom goes to the family solicitor.
 JAMES (glancing left): You know the type.
@@ -90,7 +91,7 @@ JAMES (fond, nod): Lovely old boy.
 JAMES: Still dictates onto mini-cassettes.
 JAMES: Smells like mahogany and dust.
 
-**HIGH STREET.** Still walking.
+**HIGH STREET.** Still standing there; a van goes by.
 
 JAMES (frantic, as Tom): Tom sits there raving about cryptographic lock-outs, severed 2FA loops, evaporated software licenses...
 JAMES (slowing, a nod): and the solicitor just nods, adjusts his glasses, and goes,
@@ -139,4 +140,4 @@ JAMES (triumphant, finger up): I'm having my 24-word crypto seed phrase laser-en
 JAMES (smug): If my family wants my digital legacy, they're going to have to earn it the old-fashioned way—
 JAMES (delighted): three trips in the estate car and a double hernia.
 
-*He nods, pleased with himself, and waves goodbye to the phone.* End card.
+**CAR.** Close on his face. A short pause; he blinks. Blackout. End card.

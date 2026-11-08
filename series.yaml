@@ -1,3 +1,4 @@
 # Marks this repo as a CartoonEngine series. The engine's tools look for it.
 title: "Rendered Rants"
 engine: dvidianjh-cyber/cartoonengine
+format: portrait   # filmed on a phone: 720x1280 (landscape | portrait | square)
