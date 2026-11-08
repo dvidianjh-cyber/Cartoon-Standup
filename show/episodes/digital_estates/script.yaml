@@ -1,20 +1,18 @@
-# Digital Estates: James's vlog about inheriting a digital life.
-# Hand-held selfie close-ups walking down the street and the high street, the
+# Digital Estates: James's vlog about inheriting a digital life, filmed upright on
+# his phone (series.yaml format: portrait, 720x1280). Hand-held selfies walking
+# down the street and standing across the road from the high street shops, the
 # phone propped up on the sofa in front of the record shelves, and on the dash
-# mount in the estate car (crates of vinyl in the boot). Same words and
-# directions as the voiced takes, so the cached audio is reused.
+# mount in the estate car (right-hand drive: James on screen-left). Same words
+# and directions as the voiced takes, so the cached audio is reused.
 #   py ../cartoonengine/tools/run_episode.py show/episodes/digital_estates
 #
-# Framings: close  = james y 1418, scale 1.4  (head and shoulders)
-#           xclose = james y 1825, scale 1.85 (face fills the frame)
-# Selfie scenes gesture with the left hand; the right holds the phone.
-# Generated from the shot plan; edit freely.
+# Framing: james x 360, y 1840, scale 1.6 (head and shoulders); in the car x 240,
+# y 1760, scale 1.5. Tighter shots are a scene `zoom:`, emphasis a line `zoom:`;
+# both scale the whole frame about his face. Pat, Dev and Maggie are passers-by.
 episode: digital_estates
 title: Digital Estates
 display_title: Digital Estates
 fps: 30
-width: 1280
-height: 720
 audio_pad: 0.05
 pause_after: 0.2
 lead_in: 0.15
@@ -26,9 +24,9 @@ scenes:
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [walk, blink, selfie]
   lead_in: 0.6
@@ -59,11 +57,12 @@ scenes:
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [walk, blink, selfie]
+  zoom: 1.3
   lines:
   - character: james
     text: But you knew exactly where you stood!
@@ -82,9 +81,9 @@ scenes:
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [walk, blink, selfie]
   lines:
@@ -114,9 +113,9 @@ scenes:
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
   lines:
@@ -149,11 +148,12 @@ scenes:
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
+  zoom: 1.3
   lines:
   - character: james
     text: What do they do?
@@ -167,6 +167,7 @@ scenes:
     beats:
     - {character: james, action: surprised, start: 0.0, dur: 0.9}
     tilt: {angle: 8, start: 0.0, dur: 1.0}
+    zoom: {scale: 1.25, ramp: 0.12}
   - character: james
     text: Gone.
     direction: flat
@@ -183,9 +184,9 @@ scenes:
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
   lines:
@@ -218,9 +219,9 @@ scenes:
   handheld: {sway: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
       actions: [idle, blink]
   lines:
@@ -254,11 +255,12 @@ scenes:
   handheld: {sway: 0.3}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
       actions: [idle, blink]
+  zoom: 1.3
   lines:
   - character: james
     text: Screen blinks.
@@ -277,9 +279,9 @@ scenes:
   handheld: {sway: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
       actions: [idle, blink]
   lines:
@@ -315,11 +317,12 @@ scenes:
   handheld: {sway: 0.3}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
       actions: [idle, blink]
+  zoom: 1.3
   lines:
   - character: james
     text: He's not just locked out of the crypto.
@@ -341,19 +344,43 @@ scenes:
     - {character: james, action: worried, start: 0.0, dur: 3.0}
 - name: high_solicitor
   backdrop: high_street
-  scroll: 110
-  handheld: {sway: 1.1, follow: 0.3}
+  handheld: {sway: 0.7, follow: 0.3}
+  depth: {y: 0, scale: 0}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
-      actions: [walk, blink, selfie]
+      actions: [idle, blink, selfie]
+    pat:
+      x: -80
+      y: 712
+      scale: 0.23
+      depth: -3
+      look: center
+      actions: [idle, blink]
+  set:
+  - piece: estate_blue_r
+    id: estate_blue_r_2.0
+    x: -320
+    y: 790
+    scale: 0.9
+    depth: -2
+    move: {to: 1040, start: 2.0, dur: 3.2}
+  - piece: hatch_red_l
+    id: hatch_red_l_7.5
+    x: 1040
+    y: 872
+    scale: 1.0
+    depth: -1
+    move: {to: -320, start: 7.5, dur: 2.6}
   lines:
   - character: james
     text: Panicking, Tom goes to the family solicitor.
     direction: brisk
+    beats:
+    - {character: pat, action: walk_to, x: 820, start: 0.4, dur: 9.0}
   - character: james
     text: You know the type.
     direction: knowing, to the room
@@ -375,19 +402,51 @@ scenes:
     pause_after: 0.35
 - name: high_letter
   backdrop: high_street
-  scroll: 110
-  handheld: {sway: 1.1, follow: 0.3}
+  handheld: {sway: 0.7, follow: 0.3}
+  depth: {y: 0, scale: 0}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
-      actions: [walk, blink, selfie]
+      actions: [idle, blink, selfie]
+    dev:
+      x: 800
+      y: 712
+      scale: 0.23
+      depth: -3
+      look: center
+      actions: [idle, blink]
+    maggie:
+      x: -80
+      y: 712
+      scale: 0.23
+      depth: -3
+      look: center
+      actions: [idle, blink]
+  set:
+  - piece: van_white_l
+    id: van_white_l_1.5
+    x: 1040
+    y: 872
+    scale: 1.0
+    depth: -1
+    move: {to: -320, start: 1.5, dur: 3.0}
+  - piece: hatch_red_r
+    id: hatch_red_r_8.5
+    x: -320
+    y: 790
+    scale: 0.9
+    depth: -2
+    move: {to: 1040, start: 8.5, dur: 3.0}
   lines:
   - character: james
     text: Tom sits there raving about cryptographic lock-outs, severed two F A loops, evaporated software licenses...
     direction: fast and frantic, playing Tom
+    beats:
+    - {character: maggie, action: walk_to, x: 820, start: 4.5, dur: 10.0}
+    - {character: dev, action: walk_to, x: -100, start: 0.3, dur: 8.0}
   - character: james
     text: and the solicitor just nods, adjusts his glasses, and goes,
     direction: slowing right down
@@ -402,20 +461,38 @@ scenes:
     tilt: {angle: 6, start: 1.2, dur: 2.0}
 - name: high_screwed
   backdrop: high_street
-  scroll: 110
-  handheld: {sway: 1.1, follow: 0.3}
+  handheld: {sway: 0.7, follow: 0.3}
+  depth: {y: 0, scale: 0}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
-      actions: [walk, blink, selfie]
+      actions: [idle, blink, selfie]
+    pat:
+      x: 800
+      y: 712
+      scale: 0.23
+      depth: -3
+      look: center
+      actions: [idle, blink]
+  zoom: 1.3
+  set:
+  - piece: estate_blue_l
+    id: estate_blue_l_1.2
+    x: 1040
+    y: 872
+    scale: 1.0
+    depth: -1
+    move: {to: -320, start: 1.2, dur: 2.8}
   lines:
   - character: james
     text: It's hilarious.
     direction: laughing a little
     action: still
+    beats:
+    - {character: pat, action: walk_to, x: -100, start: 0.2, dur: 6.5}
   - character: james
     text: But then you stop laughing, and you realize...
     direction: the laugh fading, slowing
@@ -428,15 +505,16 @@ scenes:
     action: still
     beats:
     - {character: james, action: worried, start: 0.0, dur: 2.0}
+    zoom: 1.25
 - name: walk_mi5
   backdrop: street
   motion: {type: recede, speed: 0.6, period: 2.0}
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [walk, blink, selfie]
   lines:
@@ -474,9 +552,9 @@ scenes:
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
   lines:
@@ -492,11 +570,12 @@ scenes:
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1825
-      scale: 1.85
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
+  zoom: 1.3
   lines:
   - character: james
     text: We didn't build digital homes.
@@ -508,14 +587,15 @@ scenes:
     direction: quiet, the line hanging in the air
     pause_after: 0.8
     action: still
+    zoom: 1.3
 - name: lounge_captcha
   backdrop: lounge
   handheld: {sway: 0.25}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [idle, blink]
   lines:
@@ -537,9 +617,9 @@ scenes:
   handheld: {sway: 1.2, follow: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 360
+      y: 1840
+      scale: 1.6
       look: center
       actions: [walk, blink, selfie]
   lines:
@@ -558,12 +638,11 @@ scenes:
   handheld: {sway: 0.3}
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
       actions: [idle, blink]
-  tail: 0.3
   lines:
   - character: james
     text: If my family wants my digital legacy, they're going to have to earn it the old-fashioned way,
@@ -572,21 +651,33 @@ scenes:
     text: three trips in the estate car and a double hernia.
     direction: the closing punchline, delighted with himself
     pause_after: 0.3
-  - wait: 1.6
-    beats:
-    - {character: james, action: nod, start: 0.2}
-- name: car_bye
+  tail: 0.2
+- name: car_end
   backdrop: car
   handheld: {sway: 0.3}
+  zoom: 1.45
   cast:
     james:
-      x: 640
-      y: 1418
-      scale: 1.4
+      x: 240
+      y: 1760
+      scale: 1.5
       look: center
-      actions: [idle, blink]
-  tail: 0.6
+      actions: [idle]
+  lead_in: 0
+  tail: 0
   lines:
-  - wait: 2.2
+  - wait: 1.5
     beats:
-    - {character: james, action: wave, start: 0.1, dur: 2.0}
+    - {character: james, action: blink, start: 0.75}
+- name: blackout
+  backdrop: black
+  cast:
+    james:
+      x: 360
+      y: 1840
+      scale: 1.6
+      present: false
+  lead_in: 0
+  tail: 0
+  lines:
+  - wait: 0.7

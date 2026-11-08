@@ -1,0 +1,10 @@
+# Maggie: a passer-by on the high street. Grey bun, glasses, plum cardigan. Non-speaking.
+skin: "#efc9ae"
+hair: bun
+hair_colors: { main: "#c9c6c0", dark: "#a29e97" }
+glasses: true
+outfit: sweater
+outfit_colors: { main: "#7b3f6b", dark: "#5e2f52", accent: "#e9d6e3", check: "#5e2f52" }
+legs: "#4a4a52"
+shoes: "#2a2a2e"
+iris: "#5a6a7a"
