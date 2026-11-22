@@ -30,6 +30,9 @@ drawn and framed this way; the series is still called "the stand-up".
 ## Characters
 - **Pat**, **Dev**, **Maggie**: non-speaking passers-by on the high street (Pat: long red hair, mustard jumper; Dev: crop, beard, green tee; Maggie: grey bun, glasses, plum cardigan). On the far pavement at `y: 712, scale: 0.23, depth: -3`, crossing with `walk_to`.
 - **James in the bath** (`james_bath`): the same James, bare shoulders, sunk to `y: 1960` behind the `bath_tub` foam. Same voice.
+- **The police officer** (`officer`): polite, by the book, friendly but immovable. Heard on the phone, off frame. Voice: Schedar. (ep03)
+- **James's manager** (`manager`), "WORK" in the script: kind, a little concerned. Heard on the phone, off frame. Voice: Sulafat. (ep03)
+- **The impound attendant** (`attendant`): behind the payment hatch, has heard every complaint and cares about none of them. Hi-vis vest, navy beanie, stubble. At `x: 540, y: 1100, scale: 0.62, depth: -1`, the `hatch_counter` at depth -0.5 and James at depth 0 (scene `depth: { y: 0, scale: 0 }`). Voice: Algenib. (ep03)
 - **James**: the vlogger. Dry, warm, quietly exasperated by modern life; tells stories about his mate Tom. Dark navy zip jacket, blue dotted shirt, jeans, spiky brown hair. Body: adult. Voice: Algieba.
 
 ## Locations (backdrops)
@@ -53,6 +56,7 @@ drawn and framed this way; the series is still called "the stand-up".
 - **monitor** (writable: `writing:` rows are the email), **desk_edge** (front), **game_screen**, **bath_tub** (front), **old_estate** (James's car side-on: bin bag on the front window, fingerprint powder), **broken_glass**, **hatch_counter** (front, card machine showing £500).
 
 ## Props
+- **phone**: for calls (`phone` state, held in `l`). When James is vlogging, the phone is the camera.
 
 ## Running gags
 - Granddad's 400 vinyl records and the three trips in the estate car.

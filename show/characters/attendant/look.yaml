@@ -1,0 +1,16 @@
+# The impound attendant: sits behind the payment hatch, has heard every complaint, cares about none
+# of them. Hi-vis vest over a navy fleece, navy beanie pulled low, stubble, heavy-lidded eyes (ep03).
+body: big
+skin: "#d9a882"
+hair: none
+outfit: sweater
+outfit_colors: { main: "#2c3a55", dark: "#1e2840" }
+sleeve: "#2c3a55"
+legs: "#2c3446"
+shoes: "#1b1b1b"
+iris: "#6b5a45"
+brows: "#4a3a2c"
+lip: "#b5735a"
+# beanie, stubble, droopy upper lids; the hi-vis vest with its reflective stripes
+extra_head: '<polygon points="-76,-30 -80,-74 -56,-104 0,-116 56,-104 80,-74 76,-30" fill="#2c3a55"/><polygon points="-80,-44 80,-44 78,-24 -78,-24" fill="#1e2840"/><polygon points="0,-116 56,-104 80,-74 76,-44 0,-44" fill="#34446a"/><polygon points="-64,24 -52,62 -26,88 0,95 26,88 52,62 64,24 48,44 26,72 0,78 -26,72 -48,44" fill="#8a7462" opacity="0.4"/><polygon points="-44,-12 -12,-12 -14,-4 -42,-4" fill="#c48f6c"/><polygon points="44,-12 12,-12 14,-4 42,-4" fill="#c48f6c"/>'
+extra_torso: '<polygon points="-100,0 -40,-4 -10,120 -10,262 -90,262 -104,130 -112,22" fill="#d8e23a"/><polygon points="100,0 40,-4 10,120 10,262 90,262 104,130 112,22" fill="#d8e23a"/><g fill="#e9eef2"><polygon points="-104,150 -10,150 -10,168 -102,168"/><polygon points="104,150 10,150 10,168 102,168"/><polygon points="-96,200 -10,200 -10,218 -94,218"/><polygon points="96,200 10,200 10,218 94,218"/></g>'
