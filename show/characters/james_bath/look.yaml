@@ -1,0 +1,14 @@
+# James in the bath: the same head as james, bare shoulders and arms (the foam hides the rest).
+body: adult
+skin: "#ebb796"
+hair: spiky
+hair_colors: { main: "#7e5b45", dark: "#5c3f2e" }
+brows: "#5c3f2e"
+outfit: tee
+outfit_colors: { main: "#ebb796", dark: "#d9a483" }
+sleeve: "#ebb796"
+legs: "#ebb796"
+shoes: "#ebb796"
+iris: "#425566"
+# collarbones and a little shading on the chest
+extra_torso: '<g fill="none" stroke="#cf9a7a" stroke-width="5" stroke-linecap="round"><path d="M-84 22 Q-46 14 -12 30"/><path d="M84 22 Q46 14 12 30"/></g><polygon points="-60,90 -10,96 -14,120 -58,112" fill="#d9a483" opacity="0.45"/><polygon points="60,90 10,96 14,120 58,112" fill="#d9a483" opacity="0.45"/>'

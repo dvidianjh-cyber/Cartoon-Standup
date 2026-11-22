@@ -1,0 +1,351 @@
+# 12 Months of AI: James vlogs a year of living with an AI agent: it starts in the car,
+# follows him through the working day and the evening, and ends with its true purpose,
+# keeping him company in the bath. Rebuilt from episode 1 of his cartoon vlog in this
+# show's look: portrait (series.yaml format: portrait, 720x1280), faceted low-poly.
+#   py ../cartoonengine/tools/run_episode.py show/episodes/ep02
+#
+# Framing as in Digital Estates: james x 360, y 1840, scale 1.6 (head and shoulders); in
+# the car x 240, y 1760, scale 1.5; at the desk and the gaming PC x 300, so the screen
+# beside him shows. In the bath he is james_bath, sunk lower (y 1960) behind the foam.
+# Tighter shots are a scene `zoom:`, emphasis a line `zoom:`.
+episode: ep02
+title: 12 Months of AI
+display_title: 12 Months of AI
+fps: 30
+audio_pad: 0.05
+pause_after: 0.2
+lead_in: 0.15
+tail: 0.1
+scenes:
+- name: bath_open
+  backdrop: bath
+  handheld: {sway: 0.25}
+  set:
+  - {piece: bath_tub, x: 360, y: 1280}
+  cast:
+    james_bath: {x: 360, y: 1960, scale: 1.6, look: center, actions: [idle, blink]}
+  lead_in: 0.5
+  lines:
+  - character: james_bath
+    text: Hiya. Yes, I'm in the bath. Stay with me, there's a point to this.
+    direction: cheerful, slightly sheepish, straight to camera
+    pause_after: 0.4
+  - character: james_bath
+    text: Twelve months ago, my daily routine was distinctly... terrestrial.
+    direction: wry, savouring the word
+    pause_after: 0.35
+  - character: james_bath
+    text: Frantic typing of notes. The heavy lifting of mundane admin.
+    direction: listing them, a bit weary
+  - character: james_bath
+    text: And the quiet feeling I had some very large thoughts, with nowhere to put them.
+    direction: softer, a little wistful
+    pause_after: 0.4
+  - character: james_bath
+    text: Today, there's an invisible co-pilot, quietly rewriting my entire operating system.
+    direction: leaning in, conspiratorial
+    beats:
+    - {character: james_bath, action: nod, start: 3.6}
+  - character: james_bath
+    text: It's a subtle shift. But laid out end to end, it borders on the surreal.
+    direction: thoughtful
+    pause_after: 0.4
+    tilt: {angle: 6, start: 2.2, dur: 2.0}
+  - character: james_bath
+    text: Let me show you. It starts on the morning commute.
+    direction: brisk, setting off
+    pause_after: 0.3
+- name: car_commute
+  backdrop: car
+  handheld: {sway: 0.3}
+  cast:
+    james: {x: 240, y: 1760, scale: 1.5, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: A year ago, the drive to the office was dead time.
+    direction: matter of fact
+  - character: james
+    text: Then a mad scramble to prep for meetings at my desk.
+    direction: remembering the stress
+    beats:
+    - {character: james, action: worried, start: 0.2, dur: 2.2}
+  - character: james
+    text: Now? The car is a mobile strategy room.
+    direction: pleased with himself
+    action: {action: point, dir: up, hand: l}
+  - character: james
+    text: I just talk to my phone. The rough edges of a project, out loud.
+    direction: casual, demonstrating
+  - character: james
+    text: And by the time I park, the research is done,
+    direction: building
+  - character: james
+    text: and the diagrams I need are already drawn.
+    direction: landing it, quietly smug
+    pause_after: 0.4
+    action: still
+    beats:
+    - {character: james, action: nod, start: 1.0}
+- name: corridor_walk
+  backdrop: corridor
+  motion: {type: recede, speed: 0.6, period: 2.0}
+  handheld: {sway: 1.2, follow: 0.3}
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, look: center, actions: [walk, blink, selfie]}
+  lines:
+  - character: james
+    text: So I walk into the building,
+    direction: upbeat, walking
+  - character: james
+    text: with three hours of work already finished.
+    direction: triumphant, a little cheeky
+    pause_after: 0.35
+    tilt: {angle: -6, start: 0.8, dur: 1.8}
+  - character: james
+    text: And that momentum? It bleeds into the rest of the day.
+    direction: confident
+    pause_after: 0.3
+- name: desk_thread
+  backdrop: office
+  handheld: {sway: 0.25}
+  set:
+  - {piece: monitor, id: screen, x: 580, y: 960, scale: 0.8, writing: ["RE: RE: FW: Budget?? (47)", "Sounds good but what", "Looping in Dave...", "Per my last email"]}
+  - {piece: desk_edge, x: 360, y: 1280}
+  cast:
+    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: Say a chaotic, sprawling email thread threatens to derail my afternoon.
+    direction: mock dread
+    beats:
+    - {character: james, action: look, at: screen, start: 0.6, dur: 1.6}
+  - character: james
+    text: One quick prompt,
+    direction: snappy
+    action: {action: point, at: screen, hand: r}
+- name: desk_summary
+  backdrop: office
+  handheld: {sway: 0.25}
+  zoom: 1.2
+  set:
+  - {piece: monitor, id: screen, x: 580, y: 960, scale: 0.8, writing: ["Summary:", "- Budget agreed", "- Launch on Friday", "- Dave does the slides"]}
+  - {piece: desk_edge, x: 360, y: 1280}
+  cast:
+    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lead_in: 0
+  lines:
+  - character: james
+    text: and it's three bullet points. Before my coffee has even cooled.
+    direction: delighted, a little smug
+    pause_after: 0.5
+    beats:
+    - {character: james, action: nod, start: 3.2}
+- name: lounge_bill
+  backdrop: lounge
+  handheld: {sway: 0.25}
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: Then the workday ends, and the real magic takes over my private life.
+    direction: relaxed, evening voice
+  - character: james
+    text: It starts with the mundane. A digital bill lands in my inbox.
+    direction: deadpan
+    action: still
+  - character: james
+    text: The kind of life admin that used to just sit there, nagging at me.
+    direction: grimacing slightly
+    beats:
+    - {character: james, action: head_shake, start: 2.4}
+  - character: james
+    text: Now I just tell the agent, file it in the right Drive folder.
+    direction: breezy, like giving an order to a butler
+    action: {action: point, dir: right, hand: r}
+  - character: james
+    text: And it vanishes from my mental load.
+    direction: relieved, light
+    pause_after: 0.4
+    tilt: {angle: 5, start: 0.6, dur: 1.8}
+- name: kitchen_flyer
+  backdrop: kitchen
+  handheld: {sway: 0.25}
+  cast:
+    james: {x: 330, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: Later, a friend messages. Can I help design a promotional flyer?
+    direction: amused, reading it out
+  - character: james
+    text: That used to mean sacrificing a perfectly good Tuesday evening,
+    direction: rueful
+  - character: james
+    text: wrestling with layout software. And fonts. So many fonts.
+    direction: exasperated, then trailing off
+    pause_after: 0.4
+    action: still
+    beats:
+    - {character: james, action: facepalm, start: 2.2, dur: 2.0}
+  - character: james
+    text: Instead, I describe the vibe to the agent while the kettle boils.
+    direction: casual, pleased
+    beats:
+    - {character: james, action: look, dir: right, start: 2.4, dur: 1.4}
+  - character: james
+    text: Twenty minutes. And by the time I sit down,
+    direction: building
+  - character: james
+    text: we've got a polished, print-ready design.
+    direction: landing it
+    pause_after: 0.4
+- name: gaming_den
+  backdrop: gaming_den
+  handheld: {sway: 0.25}
+  set:
+  - {piece: game_screen, id: game, x: 590, y: 780, scale: 0.75}
+  cast:
+    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: Even my downtime has been rewired.
+    direction: lower, late-night voice
+  - character: james
+    text: I fire up a sprawling factory-building game, and hit a wall on resource routing.
+    direction: geeky enthusiasm, then frustration
+    beats:
+    - {character: james, action: look, at: game, start: 1.0, dur: 2.0}
+    - {character: james, action: worried, start: 3.4}
+  - character: james
+    text: Old me? An hour trawling archaic wiki pages and forums.
+    direction: mock horror
+    pause_after: 0.35
+    tilt: {angle: -6, start: 0.8, dur: 2.0}
+  - character: james
+    text: Now I just ask my agent. It knows my playstyle. It knows the game.
+    direction: warm, matter of fact
+  - character: james
+    text: And it tells me exactly where to find the right materials to scale up my grid.
+    direction: satisfied
+    pause_after: 0.4
+    beats:
+    - {character: james, action: nod, start: 3.6}
+- name: bath_apex
+  backdrop: bath
+  handheld: {sway: 0.25}
+  set:
+  - {piece: bath_tub, x: 360, y: 1280}
+  cast:
+    james_bath: {x: 360, y: 1960, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james_bath
+    text: But the true apex of this strange new world? Right here. The bath.
+    direction: grand, then deflating with a grin
+    pause_after: 0.4
+  - character: james_bath
+    text: A year ago, I'd have put on an epic fantasy audiobook.
+    direction: fond
+  - character: james_bath
+    text: I love the massive concepts. Quantum physics. The mechanics of the universe. Deep history.
+    direction: lighting up
+    action: {action: point, dir: up, hand: l}
+  - character: james_bath
+    text: Not exactly standard pub conversation, though.
+    direction: dry
+    pause_after: 0.35
+    action: still
+  - character: james_bath
+    text: For a long time, I had this quiet intellectual itch, and no one to scratch it.
+    direction: honest, gentle
+  - character: james_bath
+    text: Now I lie here, phone on the edge, in a deep philosophical debate with a machine.
+    direction: amused at himself
+    pause_after: 0.35
+    tilt: {angle: 7, start: 1.2, dur: 2.2}
+  - character: james_bath
+    text: Psychologists call it niche social supplementation. I just call it a relief.
+    direction: mock-academic, then plain
+    pause_after: 0.35
+  - character: james_bath
+    text: Some psycholinguistic mirror thing means it matches my tone and my bandwidth.
+    direction: explaining, impressed
+  - character: james_bath
+    text: It challenges the logic, and connects my thoughts on the cosmos to my actual daily life.
+    direction: warm
+  - character: james_bath
+    text: Which leads to a wonderfully absurd paradox.
+    direction: relishing it
+    pause_after: 0.3
+- name: bath_paradox
+  backdrop: bath
+  handheld: {sway: 0.25}
+  zoom: 1.3
+  set:
+  - {piece: bath_tub, x: 360, y: 1280}
+  cast:
+    james_bath: {x: 360, y: 1960, scale: 1.6, look: center, actions: [idle, blink]}
+  lead_in: 0
+  lines:
+  - character: james_bath
+    text: Humanity built a vast, omniscient digital brain,
+    direction: epic, documentary voice
+    action: still
+  - character: james_bath
+    text: fed it the sum total of all recorded human knowledge,
+    direction: still epic, building
+    action: still
+  - character: james_bath
+    text: and its ultimate triumph is keeping one bloke company while the bathwater goes cold.
+    direction: dropping the epic voice, deadpan
+    pause_after: 0.6
+    beats:
+    - {character: james_bath, action: shrug, start: 3.8}
+    zoom: {scale: 1.15, start: 2.6}
+- name: bath_close
+  backdrop: bath
+  handheld: {sway: 0.25}
+  set:
+  - {piece: bath_tub, x: 360, y: 1280}
+  cast:
+    james_bath: {x: 360, y: 1960, scale: 1.6, look: center, actions: [idle, blink]}
+  lead_in: 0
+  lines:
+  - character: james_bath
+    text: And honestly? My actual friendships feel lighter for it.
+    direction: sincere
+  - character: james_bath
+    text: No more dragging my mates into a debate about the fabric of reality.
+    direction: laughing a little
+  - character: james_bath
+    text: The machine handles the cosmos. My mates handle the weekend.
+    direction: neat, satisfied, a motto
+    pause_after: 0.5
+    beats:
+    - {character: james_bath, action: nod, start: 2.8}
+  - character: james_bath
+    text: If one year takes us from a search bar to quantum mechanics in the tub,
+    direction: wondering
+  - character: james_bath
+    text: what does the next year hold?
+    direction: open, curious
+    pause_after: 0.4
+    action: still
+  - character: james_bath
+    text: Maybe the machine stops waiting for me to ask the big questions,
+    direction: slower, sleepy
+  - character: james_bath
+    text: and just quietly suggests I run the bath, before I even realise I'm tired.
+    direction: soft, a yawn creeping in
+    pause_after: 0.3
+    action: still
+  - wait: 2.0
+    beats:
+    - {character: james_bath, action: look, dir: down, start: 0.2, dur: 1.8}
+    zoom: {scale: 1.2, ramp: 1.0}
+- name: blackout
+  backdrop: black
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, present: false}
+  lead_in: 0
+  tail: 0
+  lines:
+  - wait: 0.7
