@@ -52,6 +52,7 @@ drawn and framed this way; the series is still called "the stand-up".
 
 ## Set pieces
 - **hatch_red_l/_r**, **estate_blue_l/_r**, **van_white_l/_r**: cars side-on, driving left / right, for passing traffic on the high street.
+- **car_dash** (front): the dashboard and steering wheel across the bottom of the car shot, so James sits and drives (`carry` on both hands puts them on the wheel).
 
 - **monitor** (writable: `writing:` rows are the email), **desk_edge** (front), **game_screen**, **bath_tub** (front), **old_estate** (James's car side-on: bin bag on the front window, fingerprint powder), **broken_glass**, **hatch_counter** (front, card machine showing £500).
 

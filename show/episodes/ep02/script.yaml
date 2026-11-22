@@ -5,7 +5,8 @@
 #   py ../cartoonengine/tools/run_episode.py show/episodes/ep02
 #
 # Framing as in Digital Estates: james x 360, y 1840, scale 1.6 (head and shoulders); in
-# the car x 240, y 1760, scale 1.5; at the desk and the gaming PC x 300, so the screen
+# the car x 240, y 1760, scale 1.5; at the desk x 240 and the gaming PC x 270, flipped so he
+# gestures away from the screen, and the screen
 # beside him shows. In the bath he is james_bath, sunk lower (y 1960) behind the foam.
 # Tighter shots are a scene `zoom:`, emphasis a line `zoom:`.
 episode: ep02
@@ -58,8 +59,10 @@ scenes:
 - name: car_commute
   backdrop: car
   handheld: {sway: 0.3}
+  set:
+  - {piece: car_dash, x: 360, y: 1320}
   cast:
-    james: {x: 240, y: 1760, scale: 1.5, look: center, actions: [idle, blink]}
+    james: {x: 240, y: 1760, scale: 1.5, look: center, actions: [idle, blink, {action: carry, hand: l}, {action: carry, hand: r}]}
   lines:
   - character: james
     text: A year ago, the drive to the office was dead time.
@@ -72,7 +75,6 @@ scenes:
   - character: james
     text: Now? The car is a mobile strategy room.
     direction: pleased with himself
-    action: {action: point, dir: up, hand: l}
   - character: james
     text: I just talk to my phone. The rough edges of a project, out loud.
     direction: casual, demonstrating
@@ -112,7 +114,7 @@ scenes:
   - {piece: monitor, id: screen, x: 580, y: 960, scale: 0.8, writing: ["RE: RE: FW: Budget?? (47)", "Sounds good but what", "Looping in Dave...", "Per my last email"]}
   - {piece: desk_edge, x: 360, y: 1280}
   cast:
-    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+    james: {x: 240, y: 1840, scale: 1.6, flip: true, look: center, actions: [idle, blink]}
   lines:
   - character: james
     text: Say a chaotic, sprawling email thread threatens to derail my afternoon.
@@ -122,16 +124,16 @@ scenes:
   - character: james
     text: One quick prompt,
     direction: snappy
-    action: {action: point, at: screen, hand: r}
+    action: {action: point, at: screen, hand: l}
 - name: desk_summary
   backdrop: office
   handheld: {sway: 0.25}
-  zoom: 1.2
+  zoom: {scale: 1.1, at: [560, 640]}
   set:
   - {piece: monitor, id: screen, x: 580, y: 960, scale: 0.8, writing: ["Summary:", "- Budget agreed", "- Launch on Friday", "- Dave does the slides"]}
   - {piece: desk_edge, x: 360, y: 1280}
   cast:
-    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+    james: {x: 240, y: 1840, scale: 1.6, flip: true, look: center, actions: [idle, blink]}
   lead_in: 0
   lines:
   - character: james
@@ -157,7 +159,7 @@ scenes:
     text: The kind of life admin that used to just sit there, nagging at me.
     direction: grimacing slightly
     beats:
-    - {character: james, action: head_shake, start: 2.4}
+    - {character: james, action: head_shake, start: 2.2}
   - character: james
     text: Now I just tell the agent, file it in the right Drive folder.
     direction: breezy, like giving an order to a butler
@@ -202,9 +204,9 @@ scenes:
   backdrop: gaming_den
   handheld: {sway: 0.25}
   set:
-  - {piece: game_screen, id: game, x: 590, y: 780, scale: 0.75}
+  - {piece: game_screen, id: game, x: 585, y: 1015, scale: 0.75}
   cast:
-    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+    james: {x: 270, y: 1840, scale: 1.6, flip: true, look: center, actions: [idle, blink]}
   lines:
   - character: james
     text: Even my downtime has been rewired.
@@ -298,7 +300,7 @@ scenes:
     direction: dropping the epic voice, deadpan
     pause_after: 0.6
     beats:
-    - {character: james_bath, action: shrug, start: 3.8}
+    - {character: james_bath, action: shrug, start: 3.4}
     zoom: {scale: 1.15, start: 2.6}
 - name: bath_close
   backdrop: bath
