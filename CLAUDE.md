@@ -21,6 +21,14 @@ If the engine isn't at `../cartoonengine`, look for a sibling folder named
 `cartoonengine` or `CartoonEngine`. If it isn't there either, stop and ask
 for the `cartoonengine` repo to be attached to this project.
 
+## House style
+
+Digital Estates set the look for all of James's vlog-style cartoons: portrait 720x1280,
+faceted low-poly backdrops (`art/`), geometric puppets (`show/skeleton.yaml`), James
+filming himself in head-and-shoulders close-up. New episodes, and vlogs brought in from
+James's other cartoon repos, are rebuilt in this style. `show/bible.md` → Look has the
+framing numbers.
+
 ## Skills
 
 The skills live in the engine. Before a task, read the one that fits:

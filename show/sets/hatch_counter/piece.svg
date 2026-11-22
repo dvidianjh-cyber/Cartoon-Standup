@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 506" width="360" height="506">
+  <!-- Sill and cabin wall under the impound hatch, with the card machine showing £500. Anchor: bottom centre. Made by art/make_rooms.py. -->
+  <g transform="translate(0 90)">
+  <polygon points="0.0,0.0 360.0,0.0 360.0,30.0 0.0,30.0" fill="#8e98a3"/>
+  <polygon points="0.0,30.0 360.0,30.0 360.0,36.0 0.0,36.0" fill="#6d7680"/>
+  <polygon points="0.0,36.0 360.0,36.0 360.0,416.0 0.0,416.0" fill="#d6d2c4"/>
+  <polygon points="0.0,36.0 14.0,36.0 14.0,416.0 0.0,416.0" fill="#c7c2b2"/>
+  <polygon points="36.0,36.0 50.0,36.0 50.0,416.0 36.0,416.0" fill="#c7c2b2"/>
+  <polygon points="72.0,36.0 86.0,36.0 86.0,416.0 72.0,416.0" fill="#c7c2b2"/>
+  <polygon points="108.0,36.0 122.0,36.0 122.0,416.0 108.0,416.0" fill="#c7c2b2"/>
+  <polygon points="144.0,36.0 158.0,36.0 158.0,416.0 144.0,416.0" fill="#c7c2b2"/>
+  <polygon points="180.0,36.0 194.0,36.0 194.0,416.0 180.0,416.0" fill="#c7c2b2"/>
+  <polygon points="216.0,36.0 230.0,36.0 230.0,416.0 216.0,416.0" fill="#c7c2b2"/>
+  <polygon points="252.0,36.0 266.0,36.0 266.0,416.0 252.0,416.0" fill="#c7c2b2"/>
+  <polygon points="288.0,36.0 302.0,36.0 302.0,416.0 288.0,416.0" fill="#c7c2b2"/>
+  <polygon points="324.0,36.0 338.0,36.0 338.0,416.0 324.0,416.0" fill="#c7c2b2"/>
+  <polygon points="200.0,0.0 270.0,0.0 276.0,-84.0 206.0,-84.0" fill="#2b2d33"/>
+  <polygon points="212.0,-76.0 268.0,-76.0 268.0,-46.0 212.0,-46.0" fill="#9fd39a"/>
+  <text x="240.0" y="-54.0" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="17" fill="#1b1b1b" text-anchor="middle">£500</text>
+  <polygon points="214.0,-38.0 227.0,-38.0 227.0,-31.0 214.0,-31.0" fill="#5a5e68"/>
+  <polygon points="232.0,-38.0 245.0,-38.0 245.0,-31.0 232.0,-31.0" fill="#5a5e68"/>
+  <polygon points="250.0,-38.0 263.0,-38.0 263.0,-31.0 250.0,-31.0" fill="#5a5e68"/>
+  <polygon points="214.0,-27.0 227.0,-27.0 227.0,-20.0 214.0,-20.0" fill="#5a5e68"/>
+  <polygon points="232.0,-27.0 245.0,-27.0 245.0,-20.0 232.0,-20.0" fill="#5a5e68"/>
+  <polygon points="250.0,-27.0 263.0,-27.0 263.0,-20.0 250.0,-20.0" fill="#5a5e68"/>
+  <polygon points="214.0,-16.0 227.0,-16.0 227.0,-9.0 214.0,-9.0" fill="#5a5e68"/>
+  <polygon points="232.0,-16.0 245.0,-16.0 245.0,-9.0 232.0,-9.0" fill="#5a5e68"/>
+  <polygon points="250.0,-16.0 263.0,-16.0 263.0,-9.0 250.0,-9.0" fill="#5a5e68"/>
+  </g>
+</svg>
