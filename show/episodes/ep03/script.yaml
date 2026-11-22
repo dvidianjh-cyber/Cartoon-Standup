@@ -1,0 +1,402 @@
+# Did They Get the Right Guys?: James's car is stolen, the police find it two miles away the
+# same afternoon, and the system that's meant to give it back ends up costing him more than
+# the thieves did. Rebuilt from episode 2 of his cartoon vlog in this show's look: portrait
+# (series.yaml format: portrait, 720x1280), faceted low-poly.
+#   py ../cartoonengine/tools/run_episode.py show/episodes/ep03
+#
+# Framing as in Digital Estates: james x 360, y 1840, scale 1.6 (head and shoulders). Outside
+# the house he stands left (x 200, scale 1.45) so his old estate shows behind him on the right;
+# at the hatch he stands left so the attendant shows in the hatch on the right. The officer and
+# James's manager are heard on the phone: they stand off frame (x -900). Calls are the `phone`
+# state with the phone prop in his left hand. Tighter shots are a scene `zoom:`.
+episode: ep03
+title: Did They Get the Right Guys?
+display_title: Did They Get the Right Guys?
+fps: 30
+audio_pad: 0.05
+pause_after: 0.2
+lead_in: 0.15
+tail: 0.1
+scenes:
+- name: intro_car
+  backdrop: home_street
+  handheld: {sway: 1.0, follow: 0.3}
+  set:
+  - {piece: old_estate, id: car, x: 480, y: 1110, scale: 1.3}
+  cast:
+    james: {x: 200, y: 1840, scale: 1.45, look: center, actions: [idle, blink, selfie]}
+  lead_in: 0.5
+  lines:
+  - character: james
+    text: Hiya. I'd like you to meet my car.
+    direction: cheerful, straight to camera
+    beats:
+    - {character: james, action: point, at: car, hand: l, start: 1.0, dur: 1.8}
+  - character: james
+    text: It's not much to look at. Rubbish old thing, really.
+    direction: fond, a bit apologetic
+    beats:
+    - {character: james, action: look, at: car, start: 0.2, dur: 1.4}
+  - character: james
+    text: But it's my faithful runaround, and I love it.
+    direction: warm
+    pause_after: 0.5
+  - character: james
+    text: Last week, somebody stole it.
+    direction: leaning in, like setting a riddle
+    pause_after: 0.4
+    action: still
+    zoom: 1.2
+  - character: james
+    text: And by the end of the week, I wasn't sure who.
+    direction: deadpan
+    pause_after: 0.4
+    tilt: {angle: -5, start: 1.0, dur: 2.0}
+- name: empty_space
+  backdrop: home_street
+  handheld: {sway: 1.0, follow: 0.3}
+  set:
+  - {piece: broken_glass, id: glass, x: 590, y: 1080, scale: 0.8}
+  cast:
+    james: {x: 220, y: 1840, scale: 1.5, look: center, actions: [idle, blink, selfie]}
+  lead_in: 0.5
+  lines:
+  - character: james
+    text: Hang on.
+    direction: to himself, puzzled
+    action: still
+  - wait: 2.0
+    beats:
+    - {character: james, action: look, dir: left, start: 0.0, dur: 1.0}
+    - {character: james, action: look, dir: right, start: 1.0, dur: 1.0}
+  - character: james
+    text: No. No, no, no.
+    direction: slowly, realising
+    action: still
+    beats:
+    - {character: james, action: worried, start: 0.0, dur: 2.6}
+  - wait: 1.6
+    beats:
+    - {character: james, action: look, at: glass, start: 0.0, dur: 0.8}
+    zoom: {scale: 1.25, start: 0.8, ramp: 0.15}
+- name: report_it
+  backdrop: home_street
+  handheld: {sway: 0.8, follow: 0.3}
+  set:
+  - {piece: broken_glass, id: glass, x: 590, y: 1080, scale: 0.8}
+  cast:
+    james: {x: 220, y: 1840, scale: 1.5, look: center, actions: [idle, blink, phone], hold: {l: phone}}
+    officer: {x: -900, y: 1840, scale: 1.5}
+  lines:
+  - character: james
+    text: Hello, police? I'd like to report a stolen car.
+    direction: calm, polite, on the phone
+  - character: officer
+    text: Right you are. I'll give you a crime number.
+    direction: on the phone, routine
+    pause_after: 0.4
+  - character: james
+    text: A crime number. That's that, then. Could be weeks.
+    direction: to camera, resigned, settling in
+    pause_after: 0.5
+    beats:
+    - {character: james, action: shrug, start: 2.4}
+- name: kitchen_call
+  backdrop: kitchen
+  handheld: {sway: 0.25}
+  cast:
+    james: {x: 330, y: 1840, scale: 1.6, look: center, actions: [idle, blink, phone], hold: {l: phone}}
+    officer: {x: -900, y: 1840, scale: 1.6}
+  lines:
+  - character: officer
+    text: Good news, sir. We've found your vehicle.
+    direction: on the phone, upbeat
+  - character: james
+    text: Already? Brilliant! Where is it?
+    direction: surprised, delighted
+    beats:
+    - {character: james, action: surprised, start: 0.0}
+  - character: officer
+    text: About two miles down the road from you.
+    direction: on the phone
+  - character: james
+    text: Oh, great. I'll walk down there.
+    direction: cheerful, already grabbing his coat
+  - character: officer
+    text: Oh, no, you can't have it. We need to impound it for the investigation.
+    direction: on the phone, quick, slightly alarmed
+    beats:
+    - {character: james, action: surprised, start: 0.5}
+  - wait: 1.0
+    zoom: {scale: 1.2, ramp: 0.15}
+  - character: james
+    text: Is there much damage?
+    direction: trying to stay reasonable
+  - character: officer
+    text: A broken window. And the steering column shroud's missing.
+    direction: on the phone, reading it off
+  - character: james
+    text: Honestly, I'm not fussed about catching anyone. It's a rubbish old car.
+    direction: persuasive
+  - character: james
+    text: If it drives, I'll just walk down and drive it home.
+    direction: warm, reasonable
+  - character: officer
+    text: Sorry, sir. It has to come in.
+    direction: on the phone, kindly but immovable
+    pause_after: 0.4
+  - character: james
+    text: Hear that? The gears of the system, engaging.
+    direction: aside to camera, mock-solemn
+    pause_after: 0.4
+    action: still
+    tilt: {angle: 6, start: 1.0, dur: 2.0}
+  - character: james
+    text: Okie-dokie. Let me know when I can come and get it.
+    direction: on the phone, giving in
+    pause_after: 0.4
+- name: desk_friday
+  backdrop: office
+  handheld: {sway: 0.25}
+  set:
+  - {piece: monitor, id: screen, x: 580, y: 960, scale: 0.8, writing: ["Weekly report v7", "Friday 16:30", "Have a good weekend!"]}
+  - {piece: desk_edge, x: 360, y: 1280}
+  cast:
+    james: {x: 300, y: 1840, scale: 1.6, look: center, actions: [idle, blink, phone], hold: {l: phone}}
+    officer: {x: -900, y: 1840, scale: 1.6}
+  lines:
+  - character: officer
+    text: Yep, you can come and get your car.
+    direction: on the phone, cheerful
+  - character: james
+    text: Brilliant. Where are you?
+    direction: delighted
+  - character: officer
+    text: The impound lot. It's about fifteen miles out.
+    direction: on the phone, breezy
+  - character: james
+    text: Right. And you close at...?
+    direction: slowing down
+    action: still
+  - character: officer
+    text: Five. And we're not open at the weekend.
+    direction: on the phone, as if it's helpful
+    pause_after: 0.2
+  - wait: 1.6
+    beats:
+    - {character: james, action: look, dir: up, start: 0.0, dur: 0.9}
+  - character: james
+    text: Half an hour. Fifteen miles. No car. No bus.
+    direction: under his breath, doing the maths
+    pause_after: 0.4
+    action: still
+    beats:
+    - {character: james, action: facepalm, hand: r, start: 2.4, dur: 2.0}
+  - character: james
+    text: Right. Okay. Monday, then.
+    direction: on the phone, defeated
+    pause_after: 0.4
+    action: still
+- name: lounge_saturday
+  backdrop: lounge
+  handheld: {sway: 0.25}
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, look: center, actions: [idle, blink]}
+  lines:
+  - character: james
+    text: Saturday. I know exactly where my car is.
+    direction: weary, to himself
+    action: still
+    beats:
+    - {character: james, action: look, dir: down, start: 0.0, dur: 1.6}
+  - character: james
+    text: Sitting in a secure compound, having a quiet weekend off.
+    direction: wistful, a bit jealous
+  - character: james
+    text: Which is more than I'm getting.
+    direction: to camera, deadpan
+    pause_after: 0.5
+    action: still
+    beats:
+    - {character: james, action: head_shake, start: 1.0}
+- name: road_call
+  backdrop: industrial_road
+  motion: {type: recede, speed: 0.6, period: 2.0}
+  handheld: {sway: 1.2, follow: 0.3}
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, look: center, actions: [walk, blink, phone], hold: {l: phone}}
+    manager: {x: -900, y: 1840, scale: 1.6}
+  lines:
+  - character: james
+    text: Yeah, sorry. I need to take the day off. It's an emergency.
+    direction: on the phone, out of breath, apologetic
+  - character: manager
+    text: Oh no. What's happened?
+    direction: on the phone, concerned
+  - character: james
+    text: I'm collecting my own car.
+    direction: on the phone, flat
+    pause_after: 0.4
+    action: still
+- name: road_reunited
+  backdrop: industrial_road
+  motion: {type: recede, speed: 0.6, period: 2.0}
+  handheld: {sway: 1.2, follow: 0.3}
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, look: center, actions: [walk, blink, selfie]}
+  lead_in: 0.6
+  lines:
+  - character: james
+    text: There it is. Reunited at last.
+    direction: relieved, to camera
+    pause_after: 0.4
+    action: {action: point, dir: up, hand: l}
+- name: hatch_bill
+  backdrop: impound_hatch
+  handheld: {sway: 0.7, follow: 0.3}
+  depth: {y: 0, scale: 0}
+  set:
+  - {piece: hatch_counter, id: counter, x: 540, y: 1280, depth: -0.5}
+  cast:
+    attendant: {x: 540, y: 1100, scale: 0.62, depth: -1, look: down, actions: [idle, blink]}
+    james: {x: 200, y: 1840, scale: 1.5, look: center, actions: [idle, blink, selfie]}
+  lines:
+  - character: attendant
+    text: That's four nights at a hundred and twenty-five pounds a night. Five hundred pounds, please.
+    direction: flat, bored, not looking up
+    pause_after: 0.2
+    action: still
+  - wait: 1.4
+    zoom: {scale: 1.2, at: james, ramp: 0.15}
+  - character: james
+    text: Hang on a minute. Four nights?
+    direction: polite, disbelieving
+    beats:
+    - {character: james, action: look, at: attendant, start: 0.0, dur: 2.0}
+  - character: james
+    text: I couldn't pick it up on Friday, because you were closing.
+    direction: reasonable, building
+  - character: attendant
+    text: Yeah. We charge you for the Saturday and Sunday.
+    direction: shrugging, unbothered
+    beats:
+    - {character: attendant, action: shrug, start: 0.2}
+  - character: james
+    text: I offered to collect it on Thursday, and you wouldn't let me!
+    direction: exasperated
+    beats:
+    - {character: james, action: angry, start: 0.0, dur: 3.0}
+  - character: james
+    text: You're charging me rent, for the days you kept my car against my will.
+    direction: incredulous
+    beats:
+    - {character: james, action: look, at: attendant, start: 0.0, dur: 1.4}
+  - character: attendant
+    text: Well, yeah. Sorry. That's how it works.
+    direction: flat, final
+    pause_after: 0.2
+    action: still
+  - wait: 1.6
+- name: hatch_anomaly
+  backdrop: impound_hatch
+  handheld: {sway: 0.7, follow: 0.3}
+  depth: {y: 0, scale: 0}
+  zoom: 1.3
+  set:
+  - {piece: hatch_counter, id: counter, x: 540, y: 1280, depth: -0.5}
+  cast:
+    attendant: {x: 540, y: 1100, scale: 0.62, depth: -1, look: down, actions: [idle, blink]}
+    james: {x: 200, y: 1840, scale: 1.5, look: center, actions: [idle, blink, selfie]}
+  lead_in: 0
+  lines:
+  - character: james
+    text: It's like a little gravitational anomaly. It only consumes cash.
+    direction: quietly, the scientist in him
+    pause_after: 0.6
+    action: still
+    tilt: {angle: -6, start: 2.4, dur: 2.0}
+- name: outro_car
+  backdrop: home_street
+  handheld: {sway: 1.0, follow: 0.3}
+  set:
+  - {piece: old_estate, id: car, x: 480, y: 1110, scale: 1.3}
+  cast:
+    james: {x: 200, y: 1840, scale: 1.45, look: center, actions: [idle, blink, selfie]}
+  lines:
+  - character: james
+    text: So, I wrote the police a formal complaint. My agent helped me keep it polite.
+    direction: calmer, wry
+  - character: james
+    text: And I asked one simple question.
+    direction: innocent, mock-curious
+    pause_after: 0.3
+  - character: james
+    text: What's the legal term, when someone takes your property without permission,
+    direction: slow, precise
+  - character: james
+    text: and refuses to give it back unless you pay them?
+    direction: still precise
+    pause_after: 0.4
+  - character: james
+    text: Because I always thought that was called extortion.
+    direction: beat, deadpan
+    pause_after: 0.5
+    action: still
+    beats:
+    - {character: james, action: nod, start: 2.2}
+  - character: james
+    text: Now. Let's be fair to the thieves. They broke one window.
+    direction: fair-minded, counting it up
+  - character: james
+    text: Took my car for a thirty-minute spin, and left it two miles down the road.
+    direction: almost fond
+  - character: james
+    text: I could have swept up the glass and been driving it by Thursday teatime.
+    direction: practical
+    pause_after: 0.3
+  - character: james
+    text: The service my taxes pay for kept my car for a long weekend,
+    direction: building, ticking off
+  - character: james
+    text: cost me a day off work, and five hundred quid.
+    direction: building more
+    pause_after: 0.3
+  - character: james
+    text: And covered it in this silver fingerprint powder. Which does not come off.
+    direction: disgusted, rubbing at the door
+    pause_after: 0.4
+    beats:
+    - {character: james, action: look, at: car, start: 0.3, dur: 1.6}
+    - {character: james, action: look, dir: down, start: 2.8, dur: 1.4}
+- name: outro_riddle
+  backdrop: home_street
+  handheld: {sway: 1.0, follow: 0.3}
+  zoom: 1.3
+  set:
+  - {piece: old_estate, id: car, x: 480, y: 1110, scale: 1.3}
+  cast:
+    james: {x: 200, y: 1840, scale: 1.45, look: center, actions: [idle, blink, selfie]}
+  lead_in: 0
+  lines:
+  - character: james
+    text: So you tell me.
+    direction: to camera, the riddle again
+    pause_after: 0.4
+    action: still
+  - character: james
+    text: Did they get the right guys?
+    direction: slow, landing it
+    pause_after: 0.3
+    action: still
+    zoom: {scale: 1.15, ramp: 0.6}
+  - wait: 1.8
+    beats:
+    - {character: james, action: look, at: car, start: 0.4, dur: 1.4}
+- name: blackout
+  backdrop: black
+  cast:
+    james: {x: 360, y: 1840, scale: 1.6, present: false}
+  lead_in: 0
+  tail: 0
+  lines:
+  - wait: 0.7

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 66" width="32" height="66">
+  <!-- Mobile phone in the faceted style, earpiece up. grip = lower body, use = earpiece. -->
+  <polygon points="5,2 27,2 30,6 30,60 27,64 5,64 2,60 2,6" fill="#1f2126"/>
+  <polygon points="5,2 16,2 16,64 5,64 2,60 2,6" fill="#2b2e35"/>
+  <polygon points="6,11 26,11 26,52 6,52" fill="#3c8de8"/>
+  <polygon points="6,11 20,11 6,34" fill="#6fb0f2"/>
+  <polygon points="12,5 20,5 20,7.5 12,7.5" fill="#0c0d10"/>
+</svg>

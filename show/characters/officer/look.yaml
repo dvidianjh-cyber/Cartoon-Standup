@@ -1,0 +1,12 @@
+# The police officer: polite, by the book, friendly but immovable. Heard on the phone, off frame (ep03).
+# White shirt and black tie under a black stab vest, short dark crop.
+body: adult
+skin: "#c98f6a"
+hair: crop
+hair_colors: { main: "#2b2420", dark: "#1a1512" }
+outfit: shirt_tie
+outfit_colors: { main: "#f4f5f7", dark: "#c9ccd2", accent: "#1b1b1b" }
+legs: "#1f2328"
+shoes: "#111111"
+lip: "#a96a52"
+extra_torso: '<polygon points="-92,60 92,60 88,250 -88,250" fill="#1f2328"/><polygon points="-70,80 -20,80 -20,100 -70,100" fill="#dfe6ee"/>'
