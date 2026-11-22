@@ -74,7 +74,7 @@ scenes:
     direction: slowly, realising
     action: still
     beats:
-    - {character: james, action: worried, start: 0.0, dur: 2.6}
+    - {character: james, action: worried, start: 0.0, dur: 1.2}
   - wait: 1.6
     beats:
     - {character: james, action: look, at: glass, start: 0.0, dur: 0.8}
