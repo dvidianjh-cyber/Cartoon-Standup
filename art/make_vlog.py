@@ -129,18 +129,20 @@ def street():
     def s(v):
         return round(v * S, 1)
     # Sprite depths: `near`..`far` with copies spaced evenly in log depth (sync). Keep far/near a whole
-    # power of the zoom so the spacing matches the houses' repeat.
+    # power of the zoom so the spacing matches the houses' repeat, with one copy per power (count = the
+    # power). Four powers carry everything well down the street before it fades, so the cars and
+    # lampposts recede with the houses instead of vanishing half way.
     zr = STREET_ZOOM
     sprites = {
         "vanish": [VX, VY],
         "zoom": round(zr, 4),
         "sync": True,
         "sprites": [
-            {"src": "lamp.svg", "side": "both", "offset": s(450), "y": s(GROUND), "height": s(1000), "count": 3, "near": 0.35, "far": round(0.35 * zr ** 3, 2)},
-            {"src": "tree.svg", "side": "both", "offset": s(600), "y": s(GROUND), "height": s(900), "count": 3, "phase": 0.5, "near": 0.35, "far": round(0.35 * zr ** 3, 2)},
-            {"src": "bin.svg", "side": "left", "offset": s(720), "y": s(GROUND), "height": s(200), "count": 3, "phase": 0.2, "near": 0.35, "far": round(0.35 * zr ** 3, 2)},
-            {"src": "car.svg", "side": "right", "offset": s(300), "y": s(GROUND + 14), "width": s(420), "count": 2, "phase": 0.7, "near": 0.45, "far": round(0.45 * zr ** 2, 2)},
-            {"src": "car2.svg", "side": "left", "offset": s(300), "y": s(GROUND + 14), "width": s(420), "count": 1, "phase": 0.35, "near": 0.45, "far": round(0.45 * zr, 2)},
+            {"src": "lamp.svg", "side": "both", "offset": s(450), "y": s(GROUND), "height": s(1000), "count": 4, "near": 0.35, "far": round(0.35 * zr ** 4, 2)},
+            {"src": "tree.svg", "side": "both", "offset": s(600), "y": s(GROUND), "height": s(900), "count": 4, "phase": 0.5, "near": 0.35, "far": round(0.35 * zr ** 4, 2)},
+            {"src": "bin.svg", "side": "left", "offset": s(720), "y": s(GROUND), "height": s(200), "count": 4, "phase": 0.2, "near": 0.35, "far": round(0.35 * zr ** 4, 2)},
+            {"src": "car.svg", "side": "right", "offset": s(300), "y": s(GROUND + 14), "width": s(420), "count": 4, "phase": 0.7, "near": 0.45, "far": round(0.45 * zr ** 4, 2)},
+            {"src": "car2.svg", "side": "left", "offset": s(300), "y": s(GROUND + 14), "width": s(420), "count": 4, "phase": 0.35, "near": 0.45, "far": round(0.45 * zr ** 4, 2)},
             {"src": "dash.svg", "side": "centre", "y": s(GROUND + 14), "width": s(18), "height": s(220), "anchor": "top", "flat": True, "count": 12, "near": 0.6, "far": round(0.6 * zr ** 3, 2)},
         ],
     }
