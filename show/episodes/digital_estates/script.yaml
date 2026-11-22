@@ -250,7 +250,7 @@ scenes:
     direction: bright, approving
     action: still
     beats:
-    - {character: james, action: nod, start: 0.0}
+    - {character: james, action: nod, start: 0.0, dur: 0.8}
   - character: james
     text: So Tom sits at the PC, types in the password, hits enter.
     direction: miming the steps, tense and quick
