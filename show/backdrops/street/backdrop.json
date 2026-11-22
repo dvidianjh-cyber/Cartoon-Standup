@@ -12,9 +12,9 @@
       "offset": 360.0,
       "y": 336.0,
       "height": 800.0,
-      "count": 3,
+      "count": 4,
       "near": 0.35,
-      "far": 4.26
+      "far": 9.79
     },
     {
       "src": "tree.svg",
@@ -22,10 +22,10 @@
       "offset": 480.0,
       "y": 336.0,
       "height": 720.0,
-      "count": 3,
+      "count": 4,
       "phase": 0.5,
       "near": 0.35,
-      "far": 4.26
+      "far": 9.79
     },
     {
       "src": "bin.svg",
@@ -33,10 +33,10 @@
       "offset": 576.0,
       "y": 336.0,
       "height": 160.0,
-      "count": 3,
+      "count": 4,
       "phase": 0.2,
       "near": 0.35,
-      "far": 4.26
+      "far": 9.79
     },
     {
       "src": "car.svg",
@@ -44,10 +44,10 @@
       "offset": 240.0,
       "y": 347.2,
       "width": 336.0,
-      "count": 2,
+      "count": 4,
       "phase": 0.7,
       "near": 0.45,
-      "far": 2.38
+      "far": 12.59
     },
     {
       "src": "car2.svg",
@@ -55,10 +55,10 @@
       "offset": 240.0,
       "y": 347.2,
       "width": 336.0,
-      "count": 1,
+      "count": 4,
       "phase": 0.35,
       "near": 0.45,
-      "far": 1.03
+      "far": 12.59
     },
     {
       "src": "dash.svg",
